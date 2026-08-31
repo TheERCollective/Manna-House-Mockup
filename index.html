@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manna House — High-Fidelity Website Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --red:#C41E1E; --red-dark:#9B1717; --red-light:#F9ECEC;
+  --gold:#D4A843; --gold-light:#FDF4E0;
+  --black:#1C1C1C; --charcoal:#EFC0BC;
+  --gray:#6B6B6B; --lgray:#9A9A9A;
+  --off-white:#FAF8F4; --border:#E5E0DA;
+  --white:#FFFFFF;
+  --erc:#7B4F3A;
+}
+body{font-family:'Inter',sans-serif;background:#FAF0EE;color:var(--black);line-height:1.6;}
+
+/* ── OUTER SHELL ── */
+.shell{max-width:1400px;margin:0 auto;padding:32px 24px;}
+
+/* ── HEADER ── */
+.deck-header{
+  text-align:center;padding:48px 24px 40px;
+  border-bottom:1px solid #333; margin-bottom:40px;
+}
+.deck-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.deck-title{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:800;color:#1C1C1C;line-height:1.0;margin-bottom:8px;}
+.deck-title span{color:var(--red);}
+.deck-sub{font-size:15px;color:#8B5050;max-width:520px;margin:0 auto;}
+
+/* ── PAGE TABS ── */
+.page-tabs{
+  display:flex;gap:0;margin-bottom:0;
+  border-bottom:2px solid #D4A8A4; overflow-x:auto;
+  scrollbar-width:none;
+}
+.page-tabs::-webkit-scrollbar{display:none;}
+.page-tab{
+  font-size:12px;font-weight:600;color:#8B3030;
+  padding:12px 20px;cursor:pointer;white-space:nowrap;
+  border-bottom:3px solid transparent;margin-bottom:-2px;
+  transition:all .2s;letter-spacing:.3px;
+  background:none;border-top:none;border-left:none;border-right:none;
+  font-family:'Inter',sans-serif;
+}
+.page-tab:hover{color:#6B1A1A;}
+.page-tab.active{color:var(--red);border-bottom-color:var(--red);}
+
+/* ── BROWSER FRAME ── */
+.browser-wrap{background:#E8C4C0;border-radius:0 0 16px 16px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.6);}
+.browser-chrome{
+  background:#D4A8A4;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid #C4A0A0;
+}
+.chrome-dots{display:flex;gap:6px;}
+.chrome-dot{width:12px;height:12px;border-radius:50%;}
+.chrome-dot.r{background:#ff5f57;}
+.chrome-dot.y{background:#febc2e;}
+.chrome-dot.g{background:#28c840;}
+.chrome-bar{
+  flex:1;background:#C49490;border-radius:6px;
+  padding:6px 14px;font-size:12px;color:#8B3030;
+  display:flex;align-items:center;gap:8px;
+}
+.chrome-lock{font-size:11px;color:#8B3030;margin-right:2px;}
+.browser-body{overflow:hidden;background:var(--off-white);}
+
+/* ── PAGE SECTIONS (hidden by default) ── */
+.page-view{display:none;}
+.page-view.active{display:block;}
+
+/* ════════════════════════════════════════
+   SHARED WEBSITE COMPONENTS
+════════════════════════════════════════ */
+
+/* ── SITE NAV ── */
+.site-nav{
+  background:var(--white);
+  border-bottom:3px solid var(--red);
+  padding:0 48px;
+  display:flex;align-items:stretch;
+  position:relative;z-index:10;
+}
+.nav-brand{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:14px 0;margin-right:auto;
+}
+.nav-brand-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:24px;font-weight:800;color:var(--black);
+  letter-spacing:.3px;line-height:1.1;
+}
+.nav-brand-name em{color:var(--red);font-style:normal;}
+.nav-brand-sub{
+  font-size:9px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--lgray);margin-top:1px;
+}
+.nav-links{
+  display:flex;list-style:none;align-items:stretch;gap:0;
+}
+.nav-links li a{
+  display:flex;align-items:center;
+  padding:0 16px;font-size:13px;font-weight:500;
+  color:var(--gray);text-decoration:none;
+  border-bottom:3px solid transparent;margin-bottom:-3px;
+  transition:all .15s;white-space:nowrap;
+}
+.nav-links li a:hover{color:var(--black);}
+.nav-links li a.cur{color:var(--red);border-bottom-color:var(--red);font-weight:600;}
+.nav-cta{
+  display:flex;align-items:center;margin-left:16px;
+}
+.nav-cta a{
+  background:var(--red);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.3px;
+  padding:9px 18px;border-radius:6px;text-decoration:none;
+  white-space:nowrap;
+}
+.nav-lang{
+  display:flex;align-items:center;padding:0 12px;
+  font-size:11px;font-weight:600;color:var(--lgray);
+}
+
+/* ── ALERT BAR ── */
+.alert-bar{
+  background:var(--gold);color:var(--black);
+  text-align:center;padding:8px 20px;
+  font-size:12px;font-weight:600;letter-spacing:.2px;
+}
+
+/* ── SITE FOOTER ── */
+.site-footer{background:#E8C4C0;color:#fff;padding:48px 48px 24px;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:36px;}
+.footer-brand-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#1C1C1C;margin-bottom:4px;}
+.footer-brand-name em{color:var(--red);font-style:normal;}
+.footer-brand-sub{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#7B2020;margin-bottom:12px;}
+.footer-desc{font-size:12px;color:#5C3030;line-height:1.7;max-width:220px;}
+.footer-col-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7B2020;margin-bottom:14px;}
+.footer-link{display:block;font-size:13px;color:#6B3030;text-decoration:none;margin-bottom:7px;transition:color .15s;}
+.footer-link:hover{color:#fff;}
+.footer-contact-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.footer-contact-icon{font-size:13px;margin-top:1px;flex-shrink:0;}
+.footer-contact-text{font-size:12px;color:#5C3030;line-height:1.5;}
+.footer-bottom{border-top:1px solid #333;padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:#7B2020;}
+.footer-hfb{display:flex;align-items:center;gap:8px;}
+.footer-hfb-badge{background:#c41e1e22;color:var(--red);font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.5px;}
+
+/* ════════════════════════════════════════
+   HOME PAGE
+════════════════════════════════════════ */
+.home-hero{
+  position:relative;overflow:hidden;
+  background:#E8C4C0;
+  min-height:480px;display:flex;
+}
+/* Wheat SVG backdrop */
+.hero-wheat-bg{
+  position:absolute;right:-40px;top:-40px;
+  width:520px;height:520px;opacity:.055;
+  pointer-events:none;
+}
+.hero-photo-col{
+  position:absolute;right:0;top:0;bottom:0;width:44%;
+  background:linear-gradient(160deg,#3a1010 0%,#1a0808 60%,#0d0505 100%);
+  overflow:hidden;
+}
+.hero-photo-inner{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(196,30,30,.15) 0%, transparent 60%),
+    linear-gradient(180deg, #2a0a0a 0%, #120404 100%);
+}
+/* Simulated photo figures */
+.photo-figure{
+  position:absolute;bottom:0;
+  display:flex;align-items:flex-end;gap:0;
+}
+.hero-photo-overlay{
+  position:absolute;left:0;top:0;bottom:0;width:60px;
+  background:linear-gradient(to right, var(--charcoal), transparent);
+  z-index:2;
+}
+.hero-content-col{
+  position:relative;z-index:3;
+  padding:64px 48px 64px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:56%;
+}
+.hero-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:#8B3030;text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-eyebrow::before{content:'';width:24px;height:2px;background:var(--gold);}
+.hero-h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:64px;font-weight:800;line-height:.95;
+  color:#1C1C1C;margin-bottom:20px;
+}
+.hero-h1 .accent{color:var(--red);display:block;}
+.hero-sub{
+  font-size:15px;color:#3C1C1C;
+  max-width:380px;margin-bottom:32px;line-height:1.65;
+}
+.hero-btn-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:700;letter-spacing:.3px;
+  padding:13px 26px;border-radius:8px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-ghost{
+  background:rgba(255,255,255,.85);color:#1C1C1C;
+  font-size:13px;font-weight:600;letter-spacing:.3px;
+  padding:12px 24px;border-radius:8px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  border:1.5px solid rgba(255,255,255,.35);
+}
+.hero-info-card{
+  position:absolute;right:48px;bottom:48px;z-index:4;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(196,30,30,.2);
+  border-radius:12px;padding:20px 24px;min-width:200px;
+}
+.info-card-title{
+  font-size:9px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--red);margin-bottom:14px;
+}
+.info-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.info-row:last-child{margin-bottom:0;}
+.info-icon{font-size:13px;margin-top:1px;flex-shrink:0;}
+.info-text{font-size:12px;color:#1C1C1C;line-height:1.4;}
+.info-text strong{display:block;font-size:10px;color:rgba(255,240,240,.65);font-weight:500;margin-bottom:1px;}
+
+/* stats band */
+.stats-band{
+  background:#D43030;
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.stat-cell{
+  padding:24px 0;text-align:center;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+.stat-cell:last-child{border-right:none;}
+.stat-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:44px;font-weight:800;color:#fff;line-height:1;
+}
+.stat-label{
+  font-size:11px;color:rgba(255,240,240,.80);
+  text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;font-weight:500;
+}
+
+/* section wrapper */
+.pg-section{padding:64px 48px;}
+.pg-section.bg-off{background:var(--off-white);}
+.pg-section.bg-dark{background:#E8C4C0;color:#fff;}
+
+/* section header */
+.sec-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:var(--red);text-transform:uppercase;margin-bottom:8px;
+}
+.sec-eyebrow.on-dark{color:var(--gold);}
+.sec-h2{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:38px;font-weight:800;color:var(--black);
+  line-height:1.05;margin-bottom:8px;
+}
+.sec-h2.on-dark{color:#fff;}
+.sec-sub{font-size:14px;color:var(--gray);max-width:480px;margin-bottom:36px;line-height:1.65;}
+.sec-sub.on-dark{color:rgba(255,240,240,.80);}
+
+/* how it works — 3 step cards */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.how-card{
+  background:var(--white);border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.how-card-top{
+  height:90px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.how-card-top.c1{background:#2A1010;}
+.how-card-top.c2{background:#F0D0CC;}
+.how-card-top.c3{background:#1A2535;}
+.how-step-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:72px;font-weight:800;color:rgba(255,255,255,.06);
+  position:absolute;right:-8px;bottom:-16px;line-height:1;
+}
+.how-icon{font-size:32px;position:relative;z-index:1;}
+.how-card-body{padding:20px;}
+.how-card-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:19px;font-weight:800;color:var(--black);
+  text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;
+}
+.how-card-text{font-size:14px;color:var(--gray);line-height:1.7;}
+.how-card-link{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:700;color:var(--red);
+  text-decoration:none;letter-spacing:.5px;text-transform:uppercase;
+  margin-top:12px;
+}
+
+/* hours section */
+.hours-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
+.hours-card{background:var(--white);border-radius:12px;padding:28px;border:1px solid var(--border);}
+.hours-card-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:800;color:var(--black);
+  margin-bottom:20px;text-transform:uppercase;letter-spacing:.3px;
+}
+.hours-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.hours-row:last-of-type{border-bottom:none;}
+.hours-day{font-weight:600;color:var(--black);}
+.hours-time{color:var(--gray);}
+.hours-open-badge{
+  background:var(--red);color:#fff;
+  font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+.hours-divider{height:1px;background:var(--border);margin:16px 0;}
+.hours-detail{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.hours-detail-icon{font-size:13px;flex-shrink:0;margin-top:1px;}
+.hours-detail-text{font-size:12px;color:var(--gray);line-height:1.5;}
+.map-box{
+  background:linear-gradient(135deg,#d4e8d4 0%,#b8d4b8 50%,#9fc49f 100%);
+  border-radius:12px;height:200px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid #b0c8b0;position:relative;overflow:hidden;
+}
+.map-grid-lines{
+  position:absolute;inset:0;opacity:.3;
+  background-image:
+    linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+.map-pin{
+  position:relative;z-index:1;text-align:center;
+}
+.map-pin-icon{font-size:32px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.map-pin-label{
+  background:var(--red);color:#fff;
+  font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;
+  margin-top:6px;letter-spacing:.3px;
+}
+.map-road-h{position:absolute;top:50%;left:0;right:0;height:8px;background:rgba(255,255,255,.6);transform:translateY(-50%);}
+.map-road-v{position:absolute;left:30%;top:0;bottom:0;width:8px;background:rgba(255,255,255,.6);}
+.eligibility-card{
+  background:var(--white);border-radius:12px;padding:20px;
+  border:1px solid var(--border);margin-top:16px;
+  border-left:4px solid var(--red);
+}
+.eligibility-title{font-size:13px;font-weight:700;color:var(--black);margin-bottom:8px;}
+.eligibility-text{font-size:12px;color:var(--gray);line-height:1.6;}
+
+/* get involved split */
+.involve-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.involve-card{padding:52px 48px;}
+.involve-card.vol{background:#F0D0CC;}
+.involve-card.don{background:var(--red);}
+.involve-card-eyebrow{font-size:9px;font-weight:700;letter-spacing:2.5px;color:rgba(255,240,240,.68);text-transform:uppercase;margin-bottom:10px;}
+.involve-card-h3{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:800;color:#1C1C1C;margin-bottom:12px;}
+.involve-card-text{font-size:13px;color:rgba(255,240,240,.87);line-height:1.65;margin-bottom:24px;max-width:300px;}
+.involve-btn-w{
+  background:#fff;color:var(--black);
+  font-size:12px;font-weight:700;padding:11px 22px;
+  border-radius:7px;text-decoration:none;display:inline-block;letter-spacing:.3px;
+}
+.involve-btn-r{
+  background:#fff;color:var(--red);
+  font-size:12px;font-weight:700;padding:11px 22px;
+  border-radius:7px;text-decoration:none;display:inline-block;letter-spacing:.3px;
+}
+.involve-icon{font-size:36px;margin-bottom:16px;}
+.involve-feats{margin:16px 0;list-style:none;}
+.involve-feat{font-size:12px;color:rgba(255,240,240,.80);padding:4px 0;display:flex;gap:8px;}
+.involve-feat::before{content:'→';color:var(--red);font-weight:700;flex-shrink:0;}
+
+/* partners strip */
+.partners-strip{
+  background:var(--off-white);padding:36px 48px;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.partners-label{
+  font-size:10px;font-weight:700;letter-spacing:2.5px;
+  color:var(--lgray);text-transform:uppercase;text-align:center;margin-bottom:24px;
+}
+.partners-row{
+  display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;
+}
+.partner-badge{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:8px;padding:10px 18px;
+  font-size:11px;font-weight:600;color:var(--gray);
+  white-space:nowrap;
+}
+
+/* ════════════════════════════════════════
+   ABOUT PAGE
+════════════════════════════════════════ */
+.about-hero{
+  background:#E8C4C0;padding:64px 48px;
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.about-hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:#8B3030;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.about-hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--gold);}
+.about-hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:#1C1C1C;line-height:.95;margin-bottom:20px;}
+.about-hero-p{font-size:14px;color:rgba(255,240,240,.85);line-height:1.7;max-width:380px;}
+.about-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.about-stat{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;padding:20px;text-align:center;
+}
+.about-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--red);line-height:1;}
+.about-stat-label{font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+.about-story{padding:56px 48px;background:var(--white);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.story-photo{
+  background:linear-gradient(135deg,#F5D5D0,#EBBAB4);
+  border-radius:12px;height:280px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.story-photo-inner{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#EAB0AA 0%,#F5D0CC 100%);
+}
+.story-photo-label{position:relative;z-index:1;text-align:center;}
+.story-photo-icon{font-size:48px;margin-bottom:8px;}
+.story-photo-caption{font-size:11px;color:rgba(255,240,240,.68);letter-spacing:1px;text-transform:uppercase;}
+.story-content{}
+.story-pull{
+  border-left:4px solid var(--red);
+  padding:16px 20px;margin-bottom:20px;
+  background:var(--off-white);border-radius:0 8px 8px 0;
+}
+.story-pull-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:700;color:var(--black);
+  line-height:1.3;font-style:italic;
+}
+.story-body{font-size:14px;color:var(--gray);line-height:1.75;}
+.story-body p{margin-bottom:14px;}
+
+.about-mission{
+  background:var(--off-white);padding:48px 48px;
+  border-top:1px solid var(--border);
+}
+.mission-inner{
+  display:flex;gap:48px;align-items:flex-start;
+  border-left:4px solid var(--red);padding-left:32px;
+}
+.mission-icon{font-size:40px;flex-shrink:0;margin-top:4px;}
+.mission-text-block{}
+.mission-label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:var(--red);text-transform:uppercase;margin-bottom:10px;}
+.mission-quote{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:700;color:var(--black);line-height:1.2;margin-bottom:12px;}
+.mission-body{font-size:13px;color:var(--gray);line-height:1.7;max-width:520px;}
+
+.board-section{padding:48px 48px;background:var(--white);}
+.board-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;}
+.board-card{
+  background:var(--off-white);border-radius:10px;
+  padding:20px 16px;text-align:center;border:1px solid var(--border);
+}
+.board-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red);color:#fff;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+}
+.board-name{font-size:13px;font-weight:700;color:var(--black);}
+.board-role{font-size:11px;color:var(--gray);margin-top:3px;}
+.board-church{font-size:10px;color:var(--lgray);margin-top:3px;line-height:1.3;}
+
+.churches-section{
+  padding:36px 48px;background:#E8C4C0;
+}
+.churches-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+.church-card{
+  background:rgba(255,255,255,.75);border:1px solid rgba(196,30,30,.2);
+  border-radius:10px;padding:16px 20px;display:flex;gap:12px;align-items:center;
+}
+.church-icon{font-size:24px;flex-shrink:0;}
+.church-name{font-size:13px;font-weight:600;color:#1C1C1C;}
+.church-type{font-size:11px;color:rgba(255,240,240,.65);margin-top:2px;}
+
+/* ════════════════════════════════════════
+   GET HELP / PROGRAMS PAGE
+════════════════════════════════════════ */
+.help-hero{
+  background:var(--red);padding:56px 48px;
+  position:relative;overflow:hidden;
+}
+.help-hero-bg{
+  position:absolute;right:-60px;top:-60px;
+  width:380px;height:380px;opacity:.06;
+  pointer-events:none;
+}
+.help-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.help-hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(255,240,240,.78);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.help-hero-eyebrow::before{content:'';width:20px;height:2px;background:rgba(255,255,255,.4);}
+.help-hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:54px;font-weight:800;color:#fff;line-height:.95;margin-bottom:16px;}
+.help-hero-h1 em{color:var(--gold);font-style:normal;display:block;}
+.help-hero-p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;max-width:340px;}
+.help-quick-card{
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.4);
+  border-radius:12px;padding:24px;
+}
+.help-quick-title{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,240,240,.78);text-transform:uppercase;margin-bottom:16px;}
+.help-quick-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.help-quick-icon{font-size:15px;margin-top:1px;}
+.help-quick-text{font-size:13px;color:#fff;line-height:1.4;}
+.help-quick-text strong{display:block;font-size:10px;color:rgba(255,240,240,.68);font-weight:500;margin-bottom:1px;}
+
+.help-lang-bar{
+  background:#F5D5D0;color:#1C1C1C;
+  padding:12px 48px;display:flex;align-items:center;gap:16px;
+  font-size:13px;
+}
+.lang-badge{background:var(--gold);color:var(--black);font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.5px;}
+
+.help-steps-section{padding:56px 48px;background:var(--white);}
+.steps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.step-card{
+  display:flex;gap:20px;align-items:flex-start;
+  background:var(--off-white);border-radius:12px;
+  padding:24px;border:1px solid var(--border);
+}
+.step-num{
+  background:var(--red);color:#fff;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:26px;font-weight:800;
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-title{font-size:15px;font-weight:700;color:var(--black);margin-bottom:6px;}
+.step-text{font-size:14px;color:var(--gray);line-height:1.7;}
+
+.help-eligibility{
+  padding:48px 48px;background:var(--off-white);
+  border-top:1px solid var(--border);
+}
+.elig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.elig-card{
+  background:var(--white);border-radius:12px;padding:24px;
+  border:1px solid var(--border);border-top:3px solid var(--red);
+}
+.elig-icon{font-size:28px;margin-bottom:12px;}
+.elig-title{font-size:14px;font-weight:700;color:var(--black);margin-bottom:8px;}
+.elig-text{font-size:14px;color:var(--gray);line-height:1.7;}
+
+.help-faq{padding:48px 48px;background:var(--white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.faq-item{
+  background:var(--off-white);border-radius:10px;padding:20px;border:1px solid var(--border);
+}
+.faq-q{font-size:14px;font-weight:700;color:var(--black);margin-bottom:8px;}
+.faq-a{font-size:14px;color:var(--gray);line-height:1.7;}
+
+/* ════════════════════════════════════════
+   VOLUNTEER PAGE
+════════════════════════════════════════ */
+.vol-hero{
+  background:#F0D0CC;padding:56px 48px;
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.vol-hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:#8B3030;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.vol-hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--gold);}
+.vol-hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:#1C1C1C;line-height:.95;margin-bottom:16px;}
+.vol-hero-p{font-size:14px;color:rgba(255,240,240,.87);line-height:1.65;margin-bottom:24px;max-width:340px;}
+.vol-roles-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.vol-role{
+  background:rgba(255,255,255,.75);border:1px solid rgba(196,30,30,.2);
+  border-radius:8px;padding:12px 14px;
+  display:flex;gap:10px;align-items:center;
+}
+.vol-role-icon{font-size:18px;flex-shrink:0;}
+.vol-role-label{font-size:12px;color:#1C1C1C;font-weight:500;}
+.vol-role-sub{font-size:10px;color:rgba(255,240,240,.65);}
+
+.vol-why{padding:52px 48px;background:var(--off-white);}
+.vol-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.vol-benefits{display:flex;flex-direction:column;gap:16px;}
+.vol-benefit{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--white);border-radius:10px;padding:18px;
+  border:1px solid var(--border);
+}
+.vol-benefit-icon{font-size:24px;flex-shrink:0;}
+.vol-benefit-title{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px;}
+.vol-benefit-text{font-size:12px;color:var(--gray);line-height:1.5;}
+
+.vol-form-wrap{
+  background:var(--white);border-radius:16px;padding:32px;
+  border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.06);
+}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--black);margin-bottom:6px;}
+.form-sub{font-size:13px;color:var(--gray);margin-bottom:24px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-field{margin-bottom:14px;}
+.form-label{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--gray);text-transform:uppercase;display:block;margin-bottom:5px;}
+.form-input{
+  width:100%;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:7px;
+  font-size:13px;color:var(--black);
+  font-family:'Inter',sans-serif;background:var(--off-white);
+}
+.form-select{
+  width:100%;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:7px;
+  font-size:13px;color:var(--black);
+  font-family:'Inter',sans-serif;background:var(--off-white);
+  appearance:none;
+}
+.form-btn{
+  width:100%;background:var(--red);color:#fff;
+  border:none;padding:13px;border-radius:8px;
+  font-size:13px;font-weight:700;font-family:'Inter',sans-serif;
+  cursor:pointer;letter-spacing:.3px;margin-top:4px;
+}
+.form-note{font-size:11px;color:var(--lgray);margin-top:10px;text-align:center;}
+
+.vol-schedule{
+  padding:48px 48px;background:var(--white);
+  border-top:1px solid var(--border);
+}
+.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;}
+.schedule-card{
+  border-radius:12px;overflow:hidden;border:1px solid var(--border);
+}
+.schedule-card-head{
+  background:#E8C4C0;padding:16px 20px;
+  display:flex;align-items:center;gap:10px;
+}
+.schedule-card-day{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;}
+.schedule-open-dot{width:8px;height:8px;border-radius:50%;background:#4caf50;flex-shrink:0;}
+.schedule-card-body{background:var(--off-white);padding:16px 20px;}
+.schedule-time{font-size:15px;font-weight:700;color:var(--black);margin-bottom:6px;}
+.schedule-note{font-size:12px;color:var(--gray);}
+
+/* ════════════════════════════════════════
+   DONATE PAGE
+════════════════════════════════════════ */
+.donate-hero{
+  background:var(--gold);padding:56px 48px;
+  position:relative;overflow:hidden;
+}
+.donate-hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(0,0,0,.5);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.donate-hero-eyebrow::before{content:'';width:20px;height:2px;background:rgba(0,0,0,.3);}
+.donate-hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:800;color:var(--black);line-height:.95;margin-bottom:16px;}
+.donate-hero-p{font-size:15px;color:rgba(0,0,0,.65);max-width:480px;line-height:1.65;}
+.donate-impact-row{display:flex;gap:20px;margin-top:28px;}
+.impact-pill{
+  background:rgba(0,0,0,.08);border-radius:8px;padding:10px 16px;
+  font-size:12px;font-weight:600;color:var(--black);
+  display:flex;gap:8px;align-items:center;
+}
+.impact-pill-icon{font-size:16px;}
+
+.donate-options{padding:56px 48px;background:var(--white);}
+.donate-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px;}
+.donate-card{
+  border-radius:16px;overflow:hidden;
+  border:2px solid var(--border);
+}
+.donate-card.featured{border-color:var(--red);}
+.donate-card-head{
+  padding:28px;
+  background:var(--off-white);border-bottom:1px solid var(--border);
+}
+.donate-card.featured .donate-card-head{background:var(--red);}
+.donate-featured-badge{
+  display:inline-block;
+  background:rgba(255,255,255,.25);color:#fff;
+  font-size:9px;font-weight:700;letter-spacing:1.5px;
+  padding:2px 8px;border-radius:4px;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.donate-card-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:28px;font-weight:800;
+  color:var(--black);
+}
+.donate-card.featured .donate-card-title{color:#fff;}
+.donate-card-tagline{font-size:13px;color:var(--gray);margin-top:4px;}
+.donate-card.featured .donate-card-tagline{color:rgba(255,255,255,.75);}
+.donate-card-body{padding:24px;}
+.donate-list{list-style:none;margin-bottom:20px;}
+.donate-list li{
+  font-size:13px;color:var(--gray);
+  padding:7px 0;border-bottom:1px solid var(--border);
+  display:flex;gap:10px;align-items:flex-start;
+}
+.donate-list li:last-child{border-bottom:none;}
+.donate-list-check{color:var(--red);font-weight:700;flex-shrink:0;}
+.donate-btn-main{
+  display:block;background:var(--red);color:#fff;
+  text-align:center;padding:12px;border-radius:8px;
+  font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.3px;
+}
+.donate-btn-outline{
+  display:block;background:transparent;color:var(--red);
+  text-align:center;padding:11px;border-radius:8px;
+  font-size:13px;font-weight:700;text-decoration:none;
+  border:2px solid var(--red);letter-spacing:.3px;
+}
+
+.donate-amounts{padding:48px 48px;background:var(--off-white);border-top:1px solid var(--border);}
+.amounts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;}
+.amount-card{
+  background:var(--white);border-radius:12px;padding:24px;
+  border:1px solid var(--border);text-align:center;
+}
+.amount-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:36px;font-weight:800;color:var(--red);margin-bottom:6px;
+}
+.amount-desc{font-size:12px;color:var(--gray);line-height:1.5;}
+
+.donate-event{
+  background:#E8C4C0;padding:48px 48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.event-label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.event-title{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:800;color:#fff;line-height:1.0;margin-bottom:16px;}
+.event-text{font-size:14px;color:rgba(255,240,240,.85);line-height:1.65;max-width:360px;}
+.event-visual{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:28px;text-align:center;
+}
+.event-emoji{font-size:52px;margin-bottom:12px;}
+.event-card-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;}
+.event-card-text{font-size:12px;color:rgba(255,240,240,.78);line-height:1.6;}
+
+/* ════════════════════════════════════════
+   CONTACT PAGE
+════════════════════════════════════════ */
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;min-height:600px;}
+.contact-info-col{
+  background:#E8C4C0;padding:56px 48px;
+  display:flex;flex-direction:column;
+}
+.contact-info-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:#8B3030;text-transform:uppercase;margin-bottom:12px;}
+.contact-info-h1{font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:800;color:#1C1C1C;line-height:.95;margin-bottom:28px;}
+.contact-detail-block{margin-bottom:24px;}
+.contact-detail-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,240,240,.62);margin-bottom:6px;}
+.contact-detail-value{font-size:14px;color:#1C1C1C;line-height:1.5;}
+.contact-detail-icon{font-size:16px;margin-right:6px;}
+.contact-divider{height:1px;background:rgba(196,30,30,.2);margin:24px 0;}
+.contact-partners-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,240,240,.62);margin-bottom:12px;}
+.contact-partner{font-size:12px;color:rgba(255,240,240,.78);margin-bottom:6px;}
+
+.contact-form-col{background:var(--off-white);padding:56px 48px;}
+.contact-form-title{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;color:var(--black);margin-bottom:6px;}
+.contact-form-sub{font-size:14px;color:var(--gray);margin-bottom:28px;}
+.contact-map{
+  border-radius:12px;overflow:hidden;
+  height:180px;margin-bottom:24px;position:relative;
+}
+.contact-map-inner{
+  background:linear-gradient(135deg,#c8e0c8,#a0c8a0,#85b585);
+  height:100%;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.contact-map-roads-h{position:absolute;top:40%;left:0;right:0;height:10px;background:rgba(255,255,255,.7);}
+.contact-map-roads-v{position:absolute;left:35%;top:0;bottom:0;width:10px;background:rgba(255,255,255,.7);}
+.contact-map-grid{
+  position:absolute;inset:0;opacity:.25;
+  background-image:linear-gradient(rgba(0,0,0,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.15) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.contact-pin{position:relative;z-index:1;text-align:center;}
+.contact-pin-icon{font-size:36px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));}
+.contact-pin-badge{background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:4px;margin-top:6px;letter-spacing:.3px;}
+.contact-notice{
+  background:var(--red-light);border-radius:10px;padding:14px 16px;
+  border-left:3px solid var(--red);margin-top:16px;
+  font-size:12px;color:var(--gray);line-height:1.6;
+}
+.contact-notice strong{color:var(--black);}
+
+
+/* ── VISION PAGE ── */
+.vision-page{background:#F5D5D0;min-height:100vh;padding:0;}
+.vision-inner{max-width:1100px;margin:0 auto;padding:64px 48px;}
+.vision-cover-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:16px;}
+.vision-h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:#1C1C1C;line-height:1.0;margin-bottom:20px;}
+.vision-h1 em{color:var(--red);font-style:normal;}
+.vision-intro{font-size:16px;color:#3C1C1C;max-width:680px;line-height:1.75;margin-bottom:48px;}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:48px;}
+.vision-card{background:#fff;border:1px solid #E8C4C0;border-radius:12px;padding:24px;}
+.vision-card-num{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--red);line-height:1;margin-bottom:8px;}
+.vision-card-title{font-size:14px;font-weight:700;color:#1C1C1C;margin-bottom:6px;}
+.vision-card-text{font-size:13px;color:rgba(255,240,240,.78);line-height:1.6;}
+.vision-how{margin-bottom:48px;}
+.vision-how-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#1C1C1C;margin-bottom:24px;}
+.vision-steps{display:flex;flex-direction:column;gap:16px;}
+.vision-step{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid #E8C4C0;border-radius:10px;padding:20px;}
+.vision-step-num{background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.vision-step-title{font-size:14px;font-weight:700;color:#1C1C1C;margin-bottom:4px;}
+.vision-step-text{font-size:13px;color:rgba(255,240,240,.78);line-height:1.6;}
+.vision-disclaimer{background:#FDECEA;border:1px solid #E8B0AC;border-radius:10px;padding:20px 24px;}
+.vision-disclaimer-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.vision-disclaimer-text{font-size:13px;color:rgba(255,240,240,.80);line-height:1.65;}
+
+/* ── COVER DISCLAIMER ── */
+.cover-disclaimer{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;padding:14px 20px;max-width:600px;margin:20px auto 0;
+  text-align:center;
+}
+.cover-disclaimer-text{font-size:12px;color:rgba(255,240,240,.68);line-height:1.6;}
+.cover-disclaimer-text strong{color:rgba(255,255,255,.75);}
+
+/* ── PLACEHOLDER STYLES ── */
+.placeholder-block{
+  background:repeating-linear-gradient(45deg,#f5f0e8,#f5f0e8 8px,#ede8e0 8px,#ede8e0 16px);
+  border:2px dashed #C4A882;border-radius:8px;
+  padding:16px;text-align:center;
+}
+.placeholder-label{font-size:11px;font-weight:700;color:#8B6914;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.placeholder-sub{font-size:11px;color:#A08050;}
+
+/* ── MOBILE MOCKUPS ── */
+.mobile-section{padding:64px 48px;background:var(--off-white);}
+.mobile-section-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:8px;}
+.mobile-section-h2{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--black);margin-bottom:8px;}
+.mobile-section-sub{font-size:14px;color:var(--gray);max-width:520px;margin-bottom:40px;line-height:1.65;}
+.mobile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:start;}
+.mobile-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gray);text-transform:uppercase;text-align:center;margin-bottom:12px;}
+.mob-frame{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.15);border:3px solid #EFC0BC;font-family:'Inter',sans-serif;max-width:280px;margin:0 auto;}
+.mob-notch{background:#F5D5D0;height:28px;display:flex;align-items:center;justify-content:center;}
+.mob-notch-bar{width:60px;height:4px;background:#C4A0A0;border-radius:2px;}
+.mob-chrome{background:#fff;border-bottom:2px solid var(--red);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;}
+.mob-chrome-logo{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:var(--black);}
+.mob-chrome-logo em{color:var(--red);font-style:normal;}
+.mob-chrome-menu{font-size:16px;color:var(--black);}
+.mob-hero-sm{background:linear-gradient(160deg,#EBBAB4,#F5D0CC);padding:24px 16px;position:relative;overflow:hidden;}
+.mob-hero-texture{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 6px,rgba(212,168,67,.08) 6px,rgba(212,168,67,.08) 7px);}
+.mob-eyebrow{font-size:8px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;position:relative;}
+.mob-h1{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#fff;line-height:1.0;margin-bottom:8px;position:relative;}
+.mob-h1 em{color:var(--gold);font-style:normal;display:block;}
+.mob-sub{font-size:10px;color:rgba(255,240,240,.85);margin-bottom:14px;line-height:1.5;position:relative;}
+.mob-btn-r{background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:10px;border-radius:6px;text-align:center;margin-bottom:8px;position:relative;}
+.mob-btn-o{background:transparent;color:#fff;font-size:11px;font-weight:600;padding:9px;border-radius:6px;text-align:center;border:1.5px solid rgba(255,255,255,.35);position:relative;}
+.mob-info-bar{background:var(--gold);padding:8px 14px;font-size:9px;font-weight:600;color:var(--black);display:flex;flex-wrap:wrap;gap:4px;}
+.mob-stats{background:var(--red);display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:10px 4px;}
+.mob-stat-n{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;line-height:1;}
+.mob-stat-l{font-size:7px;color:rgba(255,240,240,.80);text-transform:uppercase;letter-spacing:.5px;}
+.mob-body-section{padding:16px 14px;background:var(--white);}
+.mob-body-eyebrow{font-size:8px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:4px;}
+.mob-body-h2{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:var(--black);margin-bottom:10px;}
+.mob-card-sm{background:var(--off-white);border-radius:8px;padding:10px;border:1px solid var(--border);margin-bottom:8px;display:flex;gap:8px;align-items:flex-start;}
+.mob-card-icon{font-size:16px;flex-shrink:0;}
+.mob-card-title{font-size:11px;font-weight:700;color:var(--black);margin-bottom:2px;}
+.mob-card-text{font-size:10px;color:var(--gray);line-height:1.4;}
+.mob-help-hero{background:var(--red);padding:24px 16px;}
+.mob-help-eyebrow{font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(255,240,240,.78);text-transform:uppercase;margin-bottom:6px;}
+.mob-help-h1{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#1C1C1C;line-height:1.0;margin-bottom:8px;}
+.mob-help-h1 em{color:var(--gold);font-style:normal;display:block;}
+.mob-help-sub{font-size:10px;color:rgba(255,255,255,.8);line-height:1.5;}
+.mob-info-card{background:rgba(255,255,255,.15);border-radius:8px;padding:12px 14px;margin-top:14px;}
+.mob-info-row{display:flex;gap:8px;margin-bottom:6px;font-size:10px;color:#fff;align-items:flex-start;}
+.mob-info-row:last-child{margin-bottom:0;}
+.mob-step-sm{display:flex;gap:10px;align-items:flex-start;background:var(--off-white);border-radius:8px;padding:10px;border:1px solid var(--border);margin-bottom:8px;}
+.mob-step-num{background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mob-donate-hero{background:var(--gold);padding:24px 16px;}
+.mob-donate-h1{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--black);line-height:1.0;margin-bottom:8px;}
+.mob-donate-sub{font-size:10px;color:rgba(0,0,0,.6);line-height:1.5;}
+.mob-donate-card{background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:10px;}
+.mob-donate-card-head{padding:14px;border-bottom:1px solid var(--border);}
+.mob-donate-card-head.featured{background:var(--red);}
+.mob-donate-card-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:var(--black);}
+.mob-donate-card-head.featured .mob-donate-card-title{color:#fff;}
+.mob-donate-card-body{padding:12px 14px;}
+.mob-donate-item{font-size:10px;color:var(--gray);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:6px;}
+.mob-donate-item:last-child{border-bottom:none;}
+.mob-donate-item-check{color:var(--red);font-weight:700;flex-shrink:0;}
+.mob-donate-btn{display:block;background:var(--red);color:#fff;text-align:center;padding:9px;border-radius:6px;font-size:11px;font-weight:700;margin-top:10px;}
+.mob-donate-btn.outline{background:#fff;color:var(--red);border:1.5px solid var(--red);}
+.mob-footer-sm{background:#F5D5D0;padding:12px 14px;text-align:center;}
+.mob-footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;color:#1C1C1C;margin-bottom:4px;}
+.mob-footer-logo em{color:var(--red);font-style:normal;}
+.mob-footer-text{font-size:9px;color:#8B3030;}
+
+/* ── FEATURES PAGE ── */
+.features-page{background:var(--off-white);padding:64px 48px;}
+.features-inner{max-width:1100px;margin:0 auto;}
+.features-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:8px;}
+.features-h1{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:800;color:var(--black);line-height:1.0;margin-bottom:12px;}
+.features-sub{font-size:15px;color:var(--gray);max-width:600px;margin-bottom:48px;line-height:1.7;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
+.feature-card{background:#fff;border-radius:14px;padding:24px;border:1px solid var(--border);border-top:3px solid var(--red);}
+.feature-icon{font-size:32px;margin-bottom:14px;}
+.feature-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--black);text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px;}
+.feature-text{font-size:14px;color:var(--gray);line-height:1.7;}
+.feature-badge{display:inline-block;background:var(--red-light);color:var(--red);font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;margin-top:10px;}
+.features-footer{background:#F0CECA;border-radius:14px;padding:32px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.features-footer-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#1C1C1C;margin-bottom:8px;}
+.features-footer-text{font-size:13px;color:rgba(255,240,240,.80);line-height:1.65;}
+.features-footer-meta{font-size:12px;color:rgba(255,240,240,.62);margin-top:16px;}
+.features-cta-box{background:rgba(255,255,255,.75);border:1px solid rgba(196,30,30,.2);border-radius:12px;padding:24px;}
+.features-cta-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#8B3030;text-transform:uppercase;margin-bottom:10px;}
+.features-cta-item{font-size:13px;color:rgba(255,240,240,.85);padding:7px 0;border-bottom:1px solid rgba(196,30,30,.12);display:flex;gap:10px;align-items:center;}
+.features-cta-item:last-child{border-bottom:none;}
+.features-cta-check{color:var(--red);font-weight:700;flex-shrink:0;}
+
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <div class="deck-header">
+    <div class="deck-eyebrow">High-Fidelity Website Mockups</div>
+    <div class="deck-title"><span>Manna House</span> Third Ward Food Pantry</div>
+    <div class="deck-sub">Client-ready page mockups — select a page below to preview. Prepared by The E.R. Collective · July 2026</div>
+    <div class="cover-disclaimer" style="margin-top:20px;">
+      <div class="cover-disclaimer-text"><strong>Design Concept Only.</strong> These mockups are intended to illustrate the proposed website experience. Final content, imagery, branding, and functionality will be customized following client discovery and approval. Board names, photos, and organizational details shown are placeholders.</div>
+    </div>
+  </div>
+
+  <!-- PAGE TABS -->
+  <div class="page-tabs">
+    <button class="page-tab" onclick="showPage('vision',this)">📋 Design Vision</button>
+    <button class="page-tab active" onclick="showPage('home',this)">🏠 Home</button>
+    <button class="page-tab" onclick="showPage('about',this)">📖 About</button>
+    <button class="page-tab" onclick="showPage('help',this)">🍽️ Get Help</button>
+    <button class="page-tab" onclick="showPage('volunteer',this)">🤝 Volunteer</button>
+    <button class="page-tab" onclick="showPage('donate',this)">❤️ Donate</button>
+    <button class="page-tab" onclick="showPage('contact',this)">📍 Contact</button>
+    <button class="page-tab" onclick="showPage('mobile',this)">📱 Mobile</button>
+    <button class="page-tab" onclick="showPage('features',this)">⭐ Features</button>
+  </div>
+
+  <!-- BROWSER FRAME -->
+  <div class="browser-wrap">
+    <div class="browser-chrome">
+      <div class="chrome-dots">
+        <div class="chrome-dot r"></div>
+        <div class="chrome-dot y"></div>
+        <div class="chrome-dot g"></div>
+      </div>
+      <div class="chrome-bar">
+        <span class="chrome-lock">🔒</span>
+        <span id="url-display">mannahousethirdward.org</span>
+      </div>
+    </div>
+    <div class="browser-body">
+
+
+      <!-- ═══════════════════════════════
+           DESIGN VISION PAGE
+      ═══════════════════════════════ -->
+      <div id="page-vision" class="page-view">
+        <div class="vision-page">
+          <div class="vision-inner">
+            <div class="vision-cover-eyebrow">Website Design Concept</div>
+            <h1 class="vision-h1">The Vision for<br><em>Manna House Online</em></h1>
+            <p class="vision-intro">These mockups represent a proposed design direction for the Manna House Third Ward Food Pantry website. They are created to help leadership visualize what the finished site could look like — before any development begins. Your feedback on this concept will shape the final product.</p>
+
+            <div class="vision-grid">
+              <div class="vision-card">
+                <div class="vision-card-num">6</div>
+                <div class="vision-card-title">Page Designs</div>
+                <div class="vision-card-text">Home, About, Get Help, Volunteer, Donate, and Contact — each designed for a specific audience and goal.</div>
+              </div>
+              <div class="vision-card">
+                <div class="vision-card-num">2</div>
+                <div class="vision-card-title">Languages</div>
+                <div class="vision-card-text">Every page is designed to support both English and Spanish, built in from the start — not added later.</div>
+              </div>
+              <div class="vision-card">
+                <div class="vision-card-num">100%</div>
+                <div class="vision-card-title">Mobile Ready</div>
+                <div class="vision-card-text">Designed mobile-first. Over 60% of community members will visit on a phone — the site is built for them.</div>
+              </div>
+            </div>
+
+            <div class="vision-how">
+              <div class="vision-how-title">How These Mockups Will Be Used</div>
+              <div class="vision-steps">
+                <div class="vision-step">
+                  <div class="vision-step-num">1</div>
+                  <div>
+                    <div class="vision-step-title">Review the Design Concept</div>
+                    <div class="vision-step-text">Leadership reviews these mockups to confirm the visual direction, layout, and content structure before any website development begins. This is the moment to share feedback, request changes, or approve the direction.</div>
+                  </div>
+                </div>
+                <div class="vision-step">
+                  <div class="vision-step-num">2</div>
+                  <div>
+                    <div class="vision-step-title">Provide Feedback</div>
+                    <div class="vision-step-text">The E.R. Collective will incorporate all approved feedback into the final design before build begins. Changes are much easier to make at this stage than after development starts.</div>
+                  </div>
+                </div>
+                <div class="vision-step">
+                  <div class="vision-step-num">3</div>
+                  <div>
+                    <div class="vision-step-title">Content Is Gathered & Customized</div>
+                    <div class="vision-step-text">Once the design direction is approved, real content — your logo, photos, hours, history, and organizational details — will replace the placeholder content shown in these mockups.</div>
+                  </div>
+                </div>
+                <div class="vision-step">
+                  <div class="vision-step-num">4</div>
+                  <div>
+                    <div class="vision-step-title">Build, Review & Launch</div>
+                    <div class="vision-step-text">The site is built in WordPress, reviewed by Manna House leadership, revised based on feedback, and launched with Google Business Profile, Search Console, and Analytics all connected.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="vision-disclaimer">
+              <div class="vision-disclaimer-title">⚠️ Design Concept Disclaimer</div>
+              <div class="vision-disclaimer-text">These mockups are concept designs intended to illustrate the proposed website experience for Manna House Third Ward Food Pantry. All board member names, organizational statistics, partner details, and content shown are placeholder representations of the type of information that will appear on the final site. Final content, imagery, branding, and functionality will be confirmed, customized, and approved during the client engagement process. Nothing shown here is final until explicitly approved in writing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           HOME PAGE
+      ═══════════════════════════════ -->
+      <div id="page-home" class="page-view active">
+
+        <div class="alert-bar">🌟 Open to ALL Harris County residents in need — Thursday & Friday 9 AM–12:30 PM + 3rd Saturday</div>
+
+        <!-- NAV -->
+        <nav class="site-nav">
+          <div class="nav-brand">
+            <div class="nav-brand-name"><em>Manna</em> House</div>
+            <div class="nav-brand-sub">Third Ward Food Pantry</div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#" class="cur">Get Help</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Donate</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Get Help Today</a></div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="home-hero">
+          <!-- Wheat SVG -->
+          <svg class="hero-wheat-bg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="100" y1="200" x2="100" y2="20" stroke="#D4A843" stroke-width="3"/>
+            <ellipse cx="100" cy="20" rx="12" ry="18" fill="#D4A843"/>
+            <ellipse cx="85" cy="50" rx="10" ry="16" fill="#D4A843" transform="rotate(-30 85 50)"/>
+            <ellipse cx="115" cy="50" rx="10" ry="16" fill="#D4A843" transform="rotate(30 115 50)"/>
+            <ellipse cx="80" cy="80" rx="9" ry="15" fill="#D4A843" transform="rotate(-25 80 80)"/>
+            <ellipse cx="120" cy="80" rx="9" ry="15" fill="#D4A843" transform="rotate(25 120 80)"/>
+            <ellipse cx="78" cy="108" rx="8" ry="13" fill="#D4A843" transform="rotate(-20 78 108)"/>
+            <ellipse cx="122" cy="108" rx="8" ry="13" fill="#D4A843" transform="rotate(20 122 108)"/>
+            <ellipse cx="82" cy="135" rx="7" ry="11" fill="#D4A843" transform="rotate(-15 82 135)"/>
+            <ellipse cx="118" cy="135" rx="7" ry="11" fill="#D4A843" transform="rotate(15 118 135)"/>
+          </svg>
+
+          <!-- Photo col -->
+          <div class="hero-photo-col">
+            <div class="hero-photo-inner"></div>
+            <!-- Simulated volunteer figures -->
+            <svg style="position:absolute;bottom:0;right:0;width:100%;height:100%;opacity:.18;" viewBox="0 0 400 480" fill="none">
+              <!-- Person 1 -->
+              <circle cx="140" cy="120" r="32" fill="#D4A843"/>
+              <rect x="108" y="152" width="64" height="180" rx="12" fill="#E8B84B"/>
+              <rect x="88" y="160" width="24" height="110" rx="8" fill="#D4A843"/>
+              <rect x="188" y="160" width="24" height="110" rx="8" fill="#D4A843"/>
+              <!-- Box -->
+              <rect x="118" y="290" width="80" height="60" rx="4" fill="#C8A030"/>
+              <!-- Person 2 -->
+              <circle cx="280" cy="140" r="28" fill="#B8903A"/>
+              <rect x="252" y="168" width="56" height="160" rx="10" fill="#C89840"/>
+              <rect x="234" y="175" width="20" height="100" rx="7" fill="#B8903A"/>
+              <rect x="306" y="175" width="20" height="100" rx="7" fill="#B8903A"/>
+              <!-- Shelf suggestion -->
+              <rect x="320" y="80" width="60" height="6" rx="2" fill="rgba(255,255,255,.3)"/>
+              <rect x="320" y="140" width="60" height="6" rx="2" fill="rgba(255,255,255,.3)"/>
+              <rect x="320" y="200" width="60" height="6" rx="2" fill="rgba(255,255,255,.3)"/>
+              <rect x="330" y="86" width="10" height="54" rx="2" fill="rgba(255,255,255,.2)"/>
+              <rect x="344" y="86" width="10" height="54" rx="2" fill="rgba(255,255,255,.2)"/>
+              <rect x="358" y="86" width="10" height="54" rx="2" fill="rgba(255,255,255,.2)"/>
+            </svg>
+            <div class="hero-photo-overlay"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="hero-content-col">
+            <div class="hero-eyebrow">Third Ward · Houston · Est. 1997</div>
+            <h1 class="hero-h1">Feeding<br>Families,<br><span class="accent">Rooting<br>Community.</span></h1>
+            <p class="hero-sub">Manna House Third Ward Food Pantry has served Houston's Third Ward for nearly 30 years — providing food, dignity, and connection to families across our community.</p>
+            <div class="hero-btn-row">
+              <a href="#" class="btn-primary">🍽️ Get Help Today</a>
+              <a href="#" class="btn-ghost">Volunteer With Us</a>
+            </div>
+          </div>
+
+          <!-- Info card -->
+          <div class="hero-info-card">
+            <div class="info-card-title">Hours & Location</div>
+            <div class="info-row">
+              <div class="info-icon">📅</div>
+              <div class="info-text"><strong>Open Days</strong>Thu & Fri + 3rd Saturday</div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">🕘</div>
+              <div class="info-text"><strong>Hours</strong>9:00 AM – 12:30 PM</div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">📍</div>
+              <div class="info-text"><strong>Address</strong>3118½ Blodgett St<br>Houston, TX 77004</div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">📞</div>
+              <div class="info-text">713-529-3381</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATS BAND -->
+        <div class="stats-band">
+          <div class="stat-cell"><div class="stat-num">100+</div><div class="stat-label">Families Served Weekly</div></div>
+          <div class="stat-cell"><div class="stat-num">29</div><div class="stat-label">Years Serving Third Ward</div></div>
+          <div class="stat-cell"><div class="stat-num">5</div><div class="stat-label">Partner Churches</div></div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="pg-section bg-off">
+          <div class="sec-eyebrow">Getting Food Assistance</div>
+          <div class="sec-h2">How to Get Help</div>
+          <div class="sec-sub">Receiving food from Manna House is simple, dignified, and open to all Harris County residents. No appointment. No paperwork. Just neighbors helping neighbors.</div>
+          <div class="how-grid">
+            <div class="how-card">
+              <div class="how-card-top c1"><div class="how-step-num">1</div><div class="how-icon">🚶</div></div>
+              <div class="how-card-body">
+                <div class="how-card-title">Come During Open Hours</div>
+                <div class="how-card-text">Visit us at 3118½ Blodgett St on Thursday or Friday from 9 AM–12:30 PM, or on the 3rd Saturday of each month. Walk-ins always welcome.</div>
+                <a href="#" class="how-card-link">See Full Schedule →</a>
+              </div>
+            </div>
+            <div class="how-card">
+              <div class="how-card-top c2"><div class="how-step-num">2</div><div class="how-icon">📋</div></div>
+              <div class="how-card-body">
+                <div class="how-card-title">Check In With a Volunteer</div>
+                <div class="how-card-text">Our friendly team will greet you and guide you through a simple sign-in. An ID is helpful but never required. Come as you are.</div>
+                <a href="#" class="how-card-link">What to Bring →</a>
+              </div>
+            </div>
+            <div class="how-card">
+              <div class="how-card-top c3"><div class="how-step-num">3</div><div class="how-icon">🛍️</div></div>
+              <div class="how-card-body">
+                <div class="how-card-title">Select Your Food Items</div>
+                <div class="how-card-text">Browse our stocked pantry with volunteer assistance. We offer canned goods, dry staples, beverages, and fresh items when available.</div>
+                <a href="#" class="how-card-link">What We Offer →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOURS SECTION -->
+        <div class="pg-section" style="background:var(--white);">
+          <div class="sec-eyebrow">Find Us</div>
+          <div class="sec-h2">Hours & Location</div>
+          <div class="hours-grid" style="margin-top:28px;">
+            <div>
+              <div class="hours-card">
+                <div class="hours-card-title">📅 Open Days & Hours</div>
+                <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9:00 AM – 12:30 PM</span><span class="hours-open-badge">Open</span></div>
+                <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9:00 AM – 12:30 PM</span><span class="hours-open-badge">Open</span></div>
+                <div class="hours-row"><span class="hours-day">3rd Saturday</span><span class="hours-time">9:00 AM – 12:30 PM</span><span class="hours-open-badge">Open</span></div>
+                <div class="hours-row"><span class="hours-day" style="color:var(--lgray);">Mon · Tue · Wed · Sun</span><span class="hours-time">Closed</span></div>
+                <div class="hours-divider"></div>
+                <div class="hours-detail"><div class="hours-detail-icon">📍</div><div class="hours-detail-text">3118½ Blodgett Street, Houston, Texas 77004</div></div>
+                <div class="hours-detail"><div class="hours-detail-icon">📞</div><div class="hours-detail-text">713-529-3381</div></div>
+                <div class="hours-detail"><div class="hours-detail-icon">✉️</div><div class="hours-detail-text">mannahouse3rd@gmail.com</div></div>
+              </div>
+            </div>
+            <div>
+              <div class="map-box">
+                <div class="map-grid-lines"></div>
+                <div class="map-road-h"></div>
+                <div class="map-road-v"></div>
+                <div class="map-pin">
+                  <div class="map-pin-icon">📍</div>
+                  <div class="map-pin-label">Manna House</div>
+                </div>
+              </div>
+              <div class="eligibility-card" style="margin-top:16px;">
+                <div class="eligibility-title">Who Can Come?</div>
+                <div class="eligibility-text">All Harris County residents in need are welcome. Zip codes 77004 and 77021 are our primary service area, but we serve anyone who needs support. No proof of address required.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GET INVOLVED -->
+        <div class="involve-grid">
+          <div class="involve-card vol">
+            <div class="involve-icon">🤝</div>
+            <div class="involve-card-eyebrow">Get Involved</div>
+            <div class="involve-card-h3">Volunteer<br>With Us</div>
+            <div class="involve-card-text">We run entirely on volunteer power. Join neighbors from across Houston who give a few hours each week to make sure no family goes hungry.</div>
+            <ul class="involve-feats">
+              <li class="involve-feat">Food sorting & distribution</li>
+              <li class="involve-feat">Client check-in & greeting</li>
+              <li class="involve-feat">Spanish language support needed</li>
+            </ul>
+            <a href="#" class="involve-btn-w">Sign Up to Volunteer</a>
+          </div>
+          <div class="involve-card don">
+            <div class="involve-icon">❤️</div>
+            <div class="involve-card-eyebrow">Support Our Work</div>
+            <div class="involve-card-h3">Make a<br>Donation</div>
+            <div class="involve-card-text">Food or monetary donations go directly to feeding families in the Third Ward. 100% of every gift stays in our community.</div>
+            <ul class="involve-feats">
+              <li class="involve-feat">Non-perishable food items</li>
+              <li class="involve-feat">Monetary gifts of any size</li>
+              <li class="involve-feat">Share Your Birthday campaign</li>
+            </ul>
+            <a href="#" class="involve-btn-r">Donate Today</a>
+          </div>
+        </div>
+
+        <!-- PARTNERS -->
+        <div class="partners-strip">
+          <div class="partners-label">Supported By Our Partner Churches & Houston Food Bank</div>
+          <div class="partners-row">
+            <div class="partner-badge">⛪ Pilgrim Congregational UCC</div>
+            <div class="partner-badge">⛪ St. Luke the Evangelist Episcopal</div>
+            <div class="partner-badge">⛪ Wheeler Avenue Baptist</div>
+            <div class="partner-badge">⛪ St. Mary of the Purification Catholic</div>
+            <div class="partner-badge">🏦 Houston Food Bank Partner</div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div>
+              <div class="footer-brand-name"><em>Manna</em> House</div>
+              <div class="footer-brand-sub">Third Ward Food Pantry</div>
+              <div class="footer-desc">Serving the Third Ward community since 1997. Supported by five partner churches and the Houston Food Bank. Open to all Harris County residents in need.</div>
+            </div>
+            <div>
+              <div class="footer-col-title">Quick Links</div>
+              <a href="#" class="footer-link">Get Help</a>
+              <a href="#" class="footer-link">About Us</a>
+              <a href="#" class="footer-link">Volunteer</a>
+              <a href="#" class="footer-link">Donate</a>
+              <a href="#" class="footer-link">Contact</a>
+            </div>
+            <div>
+              <div class="footer-col-title">Languages</div>
+              <a href="#" class="footer-link">English</a>
+              <a href="#" class="footer-link">Español</a>
+            </div>
+            <div>
+              <div class="footer-col-title">Contact</div>
+              <div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div>
+              <div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div>
+              <div class="footer-contact-item"><div class="footer-contact-icon">✉️</div><div class="footer-contact-text">mannahouse3rd@gmail.com</div></div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div>
+            <div class="footer-hfb"><span class="footer-hfb-badge">Houston Food Bank Partner</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           ABOUT PAGE
+      ═══════════════════════════════ -->
+      <div id="page-about" class="page-view">
+        <div class="alert-bar">🌟 Serving the Third Ward community since May 16, 1997</div>
+        <nav class="site-nav">
+          <div class="nav-brand"><div class="nav-brand-name"><em>Manna</em> House</div><div class="nav-brand-sub">Third Ward Food Pantry</div></div>
+          <ul class="nav-links"><li><a href="#" class="cur">About</a></li><li><a href="#">Get Help</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Donate</a></li><li><a href="#">Contact</a></li></ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Get Help Today</a></div>
+        </nav>
+
+        <div class="about-hero">
+          <!-- Wheat bg -->
+          <svg style="position:absolute;right:-20px;top:-20px;width:360px;height:360px;opacity:.05;pointer-events:none;" viewBox="0 0 200 200" fill="none">
+            <line x1="100" y1="200" x2="100" y2="20" stroke="#D4A843" stroke-width="3"/>
+            <ellipse cx="100" cy="20" rx="12" ry="18" fill="#D4A843"/>
+            <ellipse cx="85" cy="50" rx="10" ry="16" fill="#D4A843" transform="rotate(-30 85 50)"/>
+            <ellipse cx="115" cy="50" rx="10" ry="16" fill="#D4A843" transform="rotate(30 115 50)"/>
+            <ellipse cx="80" cy="80" rx="9" ry="15" fill="#D4A843" transform="rotate(-25 80 80)"/>
+            <ellipse cx="120" cy="80" rx="9" ry="15" fill="#D4A843" transform="rotate(25 120 80)"/>
+          </svg>
+          <div style="position:relative;z-index:1;">
+            <div class="about-hero-eyebrow">Our Story</div>
+            <h1 class="about-hero-h1">Rooted in Faith.<br>Built for<br>Community.</h1>
+            <p class="about-hero-p" style="margin-top:16px;">Founded on May 16, 1997 by a coalition of Houston churches, Manna House has served as a cornerstone of food access and community care in the Third Ward for nearly three decades.</p>
+          </div>
+          <div class="about-stat-grid" style="position:relative;z-index:1;">
+            <div class="about-stat"><div class="about-stat-num">1997</div><div class="about-stat-label">Year Founded</div></div>
+            <div class="about-stat"><div class="about-stat-num">29</div><div class="about-stat-label">Years of Service</div></div>
+            <div class="about-stat"><div class="about-stat-num">100+</div><div class="about-stat-label">Families / Week</div></div>
+            <div class="about-stat"><div class="about-stat-num">5</div><div class="about-stat-label">Partner Churches</div></div>
+          </div>
+        </div>
+
+        <div class="about-story">
+          <div class="story-grid">
+            <div class="story-photo">
+              <div class="story-photo-inner"></div>
+              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.25;" viewBox="0 0 300 280" fill="none">
+                <rect x="20" y="20" width="60" height="6" rx="2" fill="#D4A843"/>
+                <rect x="20" y="60" width="60" height="6" rx="2" fill="#D4A843"/>
+                <rect x="20" y="100" width="60" height="6" rx="2" fill="#D4A843"/>
+                <rect x="25" y="26" width="12" height="34" rx="2" fill="#C8A030"/>
+                <rect x="40" y="26" width="12" height="34" rx="2" fill="#C8A030"/>
+                <rect x="55" y="26" width="12" height="34" rx="2" fill="#C8A030"/>
+                <rect x="110" y="30" width="60" height="6" rx="2" fill="#D4A843"/>
+                <rect x="110" y="70" width="60" height="6" rx="2" fill="#D4A843"/>
+                <rect x="115" y="36" width="12" height="34" rx="2" fill="#C8A030"/>
+                <rect x="130" y="36" width="12" height="34" rx="2" fill="#C8A030"/>
+                <circle cx="200" cy="80" r="28" fill="#B89040"/>
+                <rect x="175" y="108" width="50" height="120" rx="8" fill="#C8A040"/>
+                <rect x="160" y="116" width="18" height="90" rx="6" fill="#B89040"/>
+                <rect x="222" y="116" width="18" height="90" rx="6" fill="#B89040"/>
+                <rect x="182" y="220" width="60" height="40" rx="3" fill="#A07820"/>
+              </svg>
+              <div class="story-photo-label" style="position:relative;z-index:1;">
+                <div style="font-size:11px;color:rgba(255,240,240,.62);letter-spacing:1.5px;text-transform:uppercase;">Food Pantry Interior</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:4px;">3118½ Blodgett Street</div>
+              </div>
+            </div>
+            <div class="story-content">
+              <div class="sec-eyebrow">Our History</div>
+              <div class="sec-h2" style="margin-bottom:20px;">Nearly 30 Years<br>of Neighbor Care</div>
+              <div class="story-pull">
+                <div class="story-pull-text">"We exist to eliminate hunger and feed the culture of the Third Ward — neighbor by neighbor."</div>
+              </div>
+              <div class="story-body">
+                <p>Manna House Third Ward Food Pantry was founded on May 16, 1997 by a coalition of four Houston-area churches united by a single belief: that no one in the Third Ward should go without food. What began as a small community initiative has grown into one of the neighborhood's most trusted resources — open three days a week, every week, for nearly three decades.</p>
+                <p>Originally located at 3209 Ennis, the pantry eventually moved to its current home at 3118½ Blodgett Street — on the campus of Pilgrim Congregational United Church of Christ. From this location, our all-volunteer team serves 100 or more families each week, providing groceries, canned goods, fresh items, and the dignity of being seen and served.</p>
+                <p>Manna House is a proud partner of the Houston Food Bank, participating in the annual Share Your Birthday campaign and connecting our community to food resources across the greater Houston area.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-mission">
+          <div class="mission-inner">
+            <div class="mission-icon">🌾</div>
+            <div class="mission-text-block">
+              <div class="mission-label">Our Mission</div>
+              <div class="mission-quote">Eliminating hunger. Feeding the culture.<br>Connecting our community.</div>
+              <div class="mission-body">Manna House is more than a food distribution center — it is a gathering point for community members, volunteers, and supporters who believe that hunger has no place in the Third Ward. Every person who walks through our doors is treated with respect, warmth, and the dignity they deserve.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-section">
+          <div class="sec-eyebrow">Leadership</div>
+          <div class="sec-h2">2026–2027 Board of Directors</div>
+          <div class="board-grid">
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">President</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Vice President</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Secretary</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Treasurer</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Chaplain</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Board Member</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Board Member</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+            <div class="board-card"><div class="board-avatar" style="background:var(--lgray);font-size:14px;">👤</div><div class="board-name" style="color:var(--gray);">[ Board Member Name ]</div><div class="board-role">Board Member</div><div class="board-church" style="color:var(--lgray);">Client Content Placeholder</div></div>
+          </div>
+        </div>
+
+        <div class="churches-section">
+          <div class="sec-eyebrow on-dark">Our Foundation</div>
+          <div class="sec-h2 on-dark">Partner Churches</div>
+          <div class="churches-grid" style="margin-top:24px;">
+            <div class="church-card"><div class="church-icon">⛪</div><div><div class="church-name">Pilgrim Congregational United Church of Christ</div><div class="church-type">Host Church</div></div></div>
+            <div class="church-card"><div class="church-icon">⛪</div><div><div class="church-name">St. Luke the Evangelist Episcopal Church</div><div class="church-type">Partner Church</div></div></div>
+            <div class="church-card"><div class="church-icon">⛪</div><div><div class="church-name">Wheeler Avenue Baptist Church</div><div class="church-type">Partner Church</div></div></div>
+            <div class="church-card"><div class="church-icon">⛪</div><div><div class="church-name">St. Mary of the Purification Catholic Church</div><div class="church-type">Partner Church</div></div></div>
+          </div>
+        </div>
+
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand-name"><em>Manna</em> House</div><div class="footer-brand-sub">Third Ward Food Pantry</div><div class="footer-desc">Serving the Third Ward community since 1997.</div></div>
+            <div><div class="footer-col-title">Quick Links</div><a href="#" class="footer-link">Get Help</a><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Volunteer</a><a href="#" class="footer-link">Donate</a><a href="#" class="footer-link">Contact</a></div>
+            <div><div class="footer-col-title">Languages</div><a href="#" class="footer-link">English</a><a href="#" class="footer-link">Español</a></div>
+            <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div></div>
+          </div>
+          <div class="footer-bottom"><div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div></div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           GET HELP PAGE
+      ═══════════════════════════════ -->
+      <div id="page-help" class="page-view">
+        <div class="help-lang-bar">🌐 Esta página también está disponible en español — <span class="lang-badge">Ver en Español</span></div>
+        <nav class="site-nav">
+          <div class="nav-brand"><div class="nav-brand-name"><em>Manna</em> House</div><div class="nav-brand-sub">Third Ward Food Pantry</div></div>
+          <ul class="nav-links"><li><a href="#">About</a></li><li><a href="#" class="cur">Get Help</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Donate</a></li><li><a href="#">Contact</a></li></ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Get Help Today</a></div>
+        </nav>
+
+        <div class="help-hero">
+          <svg class="help-hero-bg" viewBox="0 0 200 200" fill="none">
+            <line x1="100" y1="200" x2="100" y2="20" stroke="#fff" stroke-width="3"/>
+            <ellipse cx="100" cy="20" rx="12" ry="18" fill="#fff"/>
+            <ellipse cx="85" cy="50" rx="10" ry="16" fill="#fff" transform="rotate(-30 85 50)"/>
+            <ellipse cx="115" cy="50" rx="10" ry="16" fill="#fff" transform="rotate(30 115 50)"/>
+            <ellipse cx="80" cy="80" rx="9" ry="15" fill="#fff" transform="rotate(-25 80 80)"/>
+            <ellipse cx="120" cy="80" rx="9" ry="15" fill="#fff" transform="rotate(25 120 80)"/>
+          </svg>
+          <div class="help-hero-inner">
+            <div>
+              <div class="help-hero-eyebrow">Food Assistance</div>
+              <h1 class="help-hero-h1">Getting Food<br><em>is Simple.</em></h1>
+              <p class="help-hero-p">Manna House is open to all Harris County residents who need food support. No appointment necessary. No judgment. We're here for you.</p>
+            </div>
+            <div class="help-quick-card">
+              <div class="help-quick-title">Find Us</div>
+              <div class="help-quick-row"><div class="help-quick-icon">📅</div><div class="help-quick-text"><strong>Open Days</strong>Thursday & Friday, 3rd Saturday</div></div>
+              <div class="help-quick-row"><div class="help-quick-icon">🕘</div><div class="help-quick-text"><strong>Hours</strong>9:00 AM – 12:30 PM</div></div>
+              <div class="help-quick-row"><div class="help-quick-icon">📍</div><div class="help-quick-text"><strong>Address</strong>3118½ Blodgett St, Houston TX 77004</div></div>
+              <div class="help-quick-row"><div class="help-quick-icon">📞</div><div class="help-quick-text"><strong>Phone</strong>713-529-3381</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-steps-section">
+          <div class="sec-eyebrow">The Process</div>
+          <div class="sec-h2">Four Simple Steps</div>
+          <div class="sec-sub">From the moment you arrive to the moment you leave, our volunteers are here to help. Here's what to expect.</div>
+          <div class="steps-grid">
+            <div class="step-card"><div class="step-num">1</div><div><div class="step-title">Come During Open Hours</div><div class="step-text">Visit us at 3118½ Blodgett Street during our open times. No appointment needed. Walk-ins are always welcome. If you've never come before, we'll walk you through everything.</div></div></div>
+            <div class="step-card"><div class="step-num">2</div><div><div class="step-title">Sign In With Our Team</div><div class="step-text">A volunteer will greet you at the door and guide you through our simple sign-in process. An ID is helpful if you have one — but please don't let that stop you from coming. Everyone is welcome.</div></div></div>
+            <div class="step-card"><div class="step-num">3</div><div><div class="step-title">Browse Our Pantry</div><div class="step-text">With help from our volunteers, you'll select food items from our stocked shelves. We carry canned goods, dry staples, beverages, and fresh items when they're available.</div></div></div>
+            <div class="step-card"><div class="step-num">4</div><div><div class="step-title">Take Home What You Need</div><div class="step-text">Our goal is to make sure every household leaves with enough. We serve families of all sizes. Bring a bag or box to carry your items — or we'll help you carry out.</div></div></div>
+          </div>
+        </div>
+
+        <div class="help-eligibility">
+          <div class="sec-eyebrow">Who We Serve</div>
+          <div class="sec-h2">You Are Welcome Here</div>
+          <div class="sec-sub">Manna House exists for anyone in need. Here's everything you need to know about who can come and what to bring.</div>
+          <div class="elig-grid">
+            <div class="elig-card">
+              <div class="elig-icon">🗺️</div>
+              <div class="elig-title">Who Can Come?</div>
+              <div class="elig-text">All Harris County residents in need are welcome. Our primary service area is zip codes 77004 and 77021 — but we never turn anyone away based on where they live.</div>
+            </div>
+            <div class="elig-card">
+              <div class="elig-icon">👜</div>
+              <div class="elig-title">What to Bring</div>
+              <div class="elig-text">Bring a bag or box to carry your food. An ID is helpful for our records but is never required. Please come as you are — we are glad you're here.</div>
+            </div>
+            <div class="elig-card">
+              <div class="elig-icon">🌐</div>
+              <div class="elig-title">Languages Spoken</div>
+              <div class="elig-text">Our team speaks English and Spanish. Hablamos español. If you need language support, just let a volunteer know and we'll connect you with the right person.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-faq">
+          <div class="sec-eyebrow">Common Questions</div>
+          <div class="sec-h2">Frequently Asked Questions</div>
+          <div class="faq-grid">
+            <div class="faq-item"><div class="faq-q">Do I need an appointment?</div><div class="faq-a">No. Walk-ins are welcome during all open hours. You do not need to call ahead or schedule anything in advance.</div></div>
+            <div class="faq-item"><div class="faq-q">Is there an income requirement?</div><div class="faq-a">No. We serve all Harris County residents who are in need. There is no income verification or eligibility test required.</div></div>
+            <div class="faq-item"><div class="faq-q">How often can I come?</div><div class="faq-a">You are welcome to visit as often as you need. Our pantry is open every Thursday, Friday, and the 3rd Saturday of each month.</div></div>
+            <div class="faq-item"><div class="faq-q">What if I don't have an ID?</div><div class="faq-a">Come anyway. We may ask for your name and some basic information for our records, but an ID is never required to receive food.</div></div>
+          </div>
+        </div>
+
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand-name"><em>Manna</em> House</div><div class="footer-brand-sub">Third Ward Food Pantry</div><div class="footer-desc">Serving the Third Ward community since 1997.</div></div>
+            <div><div class="footer-col-title">Quick Links</div><a href="#" class="footer-link">Get Help</a><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Volunteer</a><a href="#" class="footer-link">Donate</a><a href="#" class="footer-link">Contact</a></div>
+            <div><div class="footer-col-title">Languages</div><a href="#" class="footer-link">English</a><a href="#" class="footer-link">Español</a></div>
+            <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div></div>
+          </div>
+          <div class="footer-bottom"><div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div></div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           VOLUNTEER PAGE
+      ═══════════════════════════════ -->
+      <div id="page-volunteer" class="page-view">
+        <div class="alert-bar">🤝 Volunteers needed every Thursday, Friday & 3rd Saturday — Spanish speakers especially welcome</div>
+        <nav class="site-nav">
+          <div class="nav-brand"><div class="nav-brand-name"><em>Manna</em> House</div><div class="nav-brand-sub">Third Ward Food Pantry</div></div>
+          <ul class="nav-links"><li><a href="#">About</a></li><li><a href="#">Get Help</a></li><li><a href="#" class="cur">Volunteer</a></li><li><a href="#">Donate</a></li><li><a href="#">Contact</a></li></ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Sign Up Now</a></div>
+        </nav>
+
+        <div class="vol-hero">
+          <div>
+            <div class="vol-hero-eyebrow">Get Involved</div>
+            <h1 class="vol-hero-h1">Give Your Time.<br>Feed Your<br>Community.</h1>
+            <p class="vol-hero-p">Manna House runs entirely on the power of volunteers. Every Thursday, Friday, and 3rd Saturday, our team of dedicated neighbors shows up to make sure no one in the Third Ward goes hungry.</p>
+            <a href="#" class="btn-primary" style="display:inline-flex;">Sign Up to Volunteer</a>
+          </div>
+          <div class="vol-roles-grid">
+            <div class="vol-role"><div class="vol-role-icon">📦</div><div><div class="vol-role-label">Food Sorting</div><div class="vol-role-sub">Organize donations & stock shelves</div></div></div>
+            <div class="vol-role"><div class="vol-role-icon">👋</div><div><div class="vol-role-label">Client Check-In</div><div class="vol-role-sub">Greet & guide visitors</div></div></div>
+            <div class="vol-role"><div class="vol-role-icon">🛒</div><div><div class="vol-role-label">Distribution</div><div class="vol-role-sub">Help families select food</div></div></div>
+            <div class="vol-role"><div class="vol-role-icon">🌐</div><div><div class="vol-role-label">Spanish Support</div><div class="vol-role-sub">Bilingual volunteers needed</div></div></div>
+            <div class="vol-role"><div class="vol-role-icon">📊</div><div><div class="vol-role-label">Record Keeping</div><div class="vol-role-sub">Sign-in & data tracking</div></div></div>
+            <div class="vol-role"><div class="vol-role-icon">🚗</div><div><div class="vol-role-label">Food Pickup</div><div class="vol-role-sub">Transport food donations</div></div></div>
+          </div>
+        </div>
+
+        <div class="vol-why">
+          <div class="vol-why-grid">
+            <div>
+              <div class="sec-eyebrow">Why Volunteer</div>
+              <div class="sec-h2" style="margin-bottom:24px;">Make a Real Difference</div>
+              <div class="vol-benefits">
+                <div class="vol-benefit"><div class="vol-benefit-icon">🍽️</div><div><div class="vol-benefit-title">Direct Community Impact</div><div class="vol-benefit-text">Your few hours each week directly help 100+ families access food with dignity. You'll see the difference you make every single shift.</div></div></div>
+                <div class="vol-benefit"><div class="vol-benefit-icon">👥</div><div><div class="vol-benefit-title">Join a Community of Neighbors</div><div class="vol-benefit-text">Our volunteer team is a tight-knit group of people from across Houston who share a commitment to Third Ward.</div></div></div>
+                <div class="vol-benefit"><div class="vol-benefit-icon">⭐</div><div><div class="vol-benefit-title">No Experience Needed</div><div class="vol-benefit-text">First time volunteering? No problem. Our team will guide you through everything. All you need is a willing heart.</div></div></div>
+              </div>
+            </div>
+            <div class="vol-form-wrap">
+              <div class="form-title">Sign Up to Volunteer</div>
+              <div class="form-sub">Fill out this form and our team will reach out to confirm your first shift.</div>
+              <div class="form-row">
+                <div class="form-field" style="margin-bottom:0;"><div class="form-label">First Name</div><input class="form-input" type="text" placeholder="First name" /></div>
+                <div class="form-field" style="margin-bottom:0;"><div class="form-label">Last Name</div><input class="form-input" type="text" placeholder="Last name" /></div>
+              </div>
+              <div class="form-field"><div class="form-label">Email Address</div><input class="form-input" type="text" placeholder="your@email.com" /></div>
+              <div class="form-field"><div class="form-label">Phone Number</div><input class="form-input" type="text" placeholder="(713) 000-0000" /></div>
+              <div class="form-row">
+                <div class="form-field" style="margin-bottom:0;"><div class="form-label">Preferred Day(s)</div><select class="form-select"><option>Thursday</option><option>Friday</option><option>3rd Saturday</option><option>All available</option></select></div>
+                <div class="form-field" style="margin-bottom:0;"><div class="form-label">Languages Spoken</div><select class="form-select"><option>English only</option><option>Spanish only</option><option>English & Spanish</option></select></div>
+              </div>
+              <div class="form-field" style="margin-top:14px;"><div class="form-label">Area of Interest</div><select class="form-select"><option>No preference — wherever needed</option><option>Food sorting & stocking</option><option>Client check-in & greeting</option><option>Spanish language support</option><option>Record keeping</option></select></div>
+              <button class="form-btn">Submit Volunteer Interest</button>
+              <div class="form-note">We'll follow up within 2–3 business days to confirm your first shift.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vol-schedule">
+          <div class="sec-eyebrow">When to Come</div>
+          <div class="sec-h2">Volunteer Schedule</div>
+          <div class="sec-sub">Volunteers arrive 30 minutes before opening to help set up. Shifts typically end 30 minutes after closing.</div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <div class="schedule-card-head"><div class="schedule-open-dot"></div><div class="schedule-card-day">Every Thursday</div></div>
+              <div class="schedule-card-body"><div class="schedule-time">8:30 AM – 1:00 PM</div><div class="schedule-note">Setup at 8:30 · Open at 9:00 · Close at 12:30 · Cleanup until 1:00</div></div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-card-head"><div class="schedule-open-dot"></div><div class="schedule-card-day">Every Friday</div></div>
+              <div class="schedule-card-body"><div class="schedule-time">8:30 AM – 1:00 PM</div><div class="schedule-note">Setup at 8:30 · Open at 9:00 · Close at 12:30 · Cleanup until 1:00</div></div>
+            </div>
+            <div class="schedule-card">
+              <div class="schedule-card-head"><div class="schedule-open-dot"></div><div class="schedule-card-day">3rd Saturday Monthly</div></div>
+              <div class="schedule-card-body"><div class="schedule-time">8:30 AM – 1:00 PM</div><div class="schedule-note">Same schedule · Check the month's 3rd Saturday date</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand-name"><em>Manna</em> House</div><div class="footer-brand-sub">Third Ward Food Pantry</div><div class="footer-desc">Serving the Third Ward community since 1997.</div></div>
+            <div><div class="footer-col-title">Quick Links</div><a href="#" class="footer-link">Get Help</a><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Volunteer</a><a href="#" class="footer-link">Donate</a><a href="#" class="footer-link">Contact</a></div>
+            <div><div class="footer-col-title">Languages</div><a href="#" class="footer-link">English</a><a href="#" class="footer-link">Español</a></div>
+            <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div></div>
+          </div>
+          <div class="footer-bottom"><div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div></div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           DONATE PAGE
+      ═══════════════════════════════ -->
+      <div id="page-donate" class="page-view">
+        <div class="alert-bar">❤️ Every donation stays in the Third Ward and goes directly to feeding our neighbors</div>
+        <nav class="site-nav">
+          <div class="nav-brand"><div class="nav-brand-name"><em>Manna</em> House</div><div class="nav-brand-sub">Third Ward Food Pantry</div></div>
+          <ul class="nav-links"><li><a href="#">About</a></li><li><a href="#">Get Help</a></li><li><a href="#">Volunteer</a></li><li><a href="#" class="cur">Donate</a></li><li><a href="#">Contact</a></li></ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Donate Now</a></div>
+        </nav>
+
+        <div class="donate-hero">
+          <div class="donate-hero-eyebrow">Support Our Work</div>
+          <h1 class="donate-hero-h1">Your Gift Feeds<br>Our Neighbors.</h1>
+          <p class="donate-hero-p">Every donation to Manna House Third Ward Food Pantry goes directly to feeding families in our community. Food or funds — every gift makes a real difference.</p>
+          <div class="donate-impact-row">
+            <div class="impact-pill"><div class="impact-pill-icon">🍽️</div>100+ families served weekly</div>
+            <div class="impact-pill"><div class="impact-pill-icon">📍</div>100% stays in Third Ward</div>
+            <div class="impact-pill"><div class="impact-pill-icon">🤝</div>Houston Food Bank partner</div>
+          </div>
+        </div>
+
+        <div class="donate-options">
+          <div class="sec-eyebrow">Ways to Give</div>
+          <div class="sec-h2">Choose How You'd Like to Help</div>
+          <div class="donate-cards">
+            <div class="donate-card featured">
+              <div class="donate-card-head">
+                <div class="donate-featured-badge">Most Needed</div>
+                <div class="donate-card-title">Donate Food</div>
+                <div class="donate-card-tagline">Drop off non-perishables during open hours</div>
+              </div>
+              <div class="donate-card-body">
+                <div style="font-size:13px;color:var(--gray);margin-bottom:14px;">Our most needed food items right now:</div>
+                <ul class="donate-list">
+                  <li><span class="donate-list-check">✓</span> Canned vegetables, fruits & beans</li>
+                  <li><span class="donate-list-check">✓</span> Peanut butter & jelly</li>
+                  <li><span class="donate-list-check">✓</span> Rice, dry pasta & oatmeal</li>
+                  <li><span class="donate-list-check">✓</span> Canned meats (tuna, chicken, salmon)</li>
+                  <li><span class="donate-list-check">✓</span> Cereal & breakfast items</li>
+                  <li><span class="donate-list-check">✓</span> Cooking oil & condiments</li>
+                </ul>
+                <a href="#" class="donate-btn-main">Plan a Food Drop-Off</a>
+                <div style="font-size:11px;color:var(--lgray);margin-top:10px;text-align:center;">Bring donations during open pantry hours: Thu & Fri 9 AM–12:30 PM</div>
+              </div>
+            </div>
+            <div class="donate-card">
+              <div class="donate-card-head">
+                <div class="donate-card-title">Give Money</div>
+                <div class="donate-card-tagline">Financial gifts purchase exactly what we need</div>
+              </div>
+              <div class="donate-card-body">
+                <div style="font-size:13px;color:var(--gray);margin-bottom:14px;">Your financial gift allows us to buy fresh produce, specialty items, and fill gaps that donations don't cover:</div>
+                <ul class="donate-list">
+                  <li><span class="donate-list-check">✓</span> Purchases fresh produce & perishables</li>
+                  <li><span class="donate-list-check">✓</span> Fills gaps in donated inventory</li>
+                  <li><span class="donate-list-check">✓</span> Supports operational needs</li>
+                  <li><span class="donate-list-check">✓</span> 100% stays in the Third Ward</li>
+                  <li><span class="donate-list-check">✓</span> Corporate & church giving welcome</li>
+                </ul>
+                <a href="#" class="donate-btn-outline">Make a Monetary Gift</a>
+                <div style="font-size:11px;color:var(--lgray);margin-top:10px;text-align:center;">Questions? Email mannahouse3rd@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="donate-amounts">
+          <div class="sec-eyebrow">Your Impact</div>
+          <div class="sec-h2">What Your Gift Does</div>
+          <div class="amounts-grid">
+            <div class="amount-card"><div class="amount-num">$25</div><div class="amount-desc">Stocks snacks and beverages for 10 families for a week</div></div>
+            <div class="amount-card"><div class="amount-num">$50</div><div class="amount-desc">Provides staple groceries for 20 families at one distribution</div></div>
+            <div class="amount-card"><div class="amount-num">$100</div><div class="amount-desc">Covers the food needs of one full distribution day</div></div>
+            <div class="amount-card"><div class="amount-num">$250</div><div class="amount-desc">Restocks an entire product category — fresh produce or proteins</div></div>
+          </div>
+        </div>
+
+        <div class="donate-event">
+          <div>
+            <div class="event-label">Annual Campaign</div>
+            <div class="event-title">Share Your<br>Birthday 🎂</div>
+            <p class="event-text">Instead of gifts, ask friends and family to donate food to Manna House on your birthday. Join the Houston Food Bank's Share Your Birthday campaign and celebrate in a way that feeds your neighbors in the Third Ward.</p>
+            <a href="#" class="btn-primary" style="margin-top:20px;display:inline-flex;">Learn About the Campaign</a>
+          </div>
+          <div class="event-visual">
+            <div class="event-emoji">🎂</div>
+            <div class="event-card-title">Share Your Birthday</div>
+            <div class="event-card-text">A Houston Food Bank initiative. In partnership with Manna House Third Ward Food Pantry. Ask for food donations instead of gifts — and feed your community.</div>
+          </div>
+        </div>
+
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand-name"><em>Manna</em> House</div><div class="footer-brand-sub">Third Ward Food Pantry</div><div class="footer-desc">Serving the Third Ward community since 1997.</div></div>
+            <div><div class="footer-col-title">Quick Links</div><a href="#" class="footer-link">Get Help</a><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Volunteer</a><a href="#" class="footer-link">Donate</a><a href="#" class="footer-link">Contact</a></div>
+            <div><div class="footer-col-title">Languages</div><a href="#" class="footer-link">English</a><a href="#" class="footer-link">Español</a></div>
+            <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div></div>
+          </div>
+          <div class="footer-bottom"><div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div></div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           CONTACT PAGE
+      ═══════════════════════════════ -->
+      <div id="page-contact" class="page-view">
+        <div class="alert-bar">📍 Need food? Just come during open hours — no contact needed: Thu & Fri 9 AM–12:30 PM + 3rd Saturday</div>
+        <nav class="site-nav">
+          <div class="nav-brand"><div class="nav-brand-name"><em>Manna</em> House</div><div class="nav-brand-sub">Third Ward Food Pantry</div></div>
+          <ul class="nav-links"><li><a href="#">About</a></li><li><a href="#">Get Help</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Donate</a></li><li><a href="#" class="cur">Contact</a></li></ul>
+          <div class="nav-lang">EN | ES</div>
+          <div class="nav-cta"><a href="#">Get Help Today</a></div>
+        </nav>
+
+        <div class="contact-layout">
+          <div class="contact-info-col">
+            <div class="contact-info-eyebrow">Get In Touch</div>
+            <h1 class="contact-info-h1">We'd Love<br>to Hear<br>From You.</h1>
+            <div class="contact-detail-block">
+              <div class="contact-detail-label">📍 Address</div>
+              <div class="contact-detail-value">3118½ Blodgett Street<br>Houston, Texas 77004</div>
+            </div>
+            <div class="contact-detail-block">
+              <div class="contact-detail-label">📞 Phone</div>
+              <div class="contact-detail-value">713-529-3381</div>
+            </div>
+            <div class="contact-detail-block">
+              <div class="contact-detail-label">✉️ Email</div>
+              <div class="contact-detail-value">mannahouse3rd@gmail.com</div>
+            </div>
+            <div class="contact-detail-block">
+              <div class="contact-detail-label">🕘 Open Hours</div>
+              <div class="contact-detail-value">Thursday & Friday<br>9:00 AM – 12:30 PM<br><br>3rd Saturday of Each Month<br>9:00 AM – 12:30 PM</div>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-partners-title">Partner Churches</div>
+            <div class="contact-partner">⛪ Pilgrim Congregational United Church of Christ</div>
+            <div class="contact-partner">⛪ St. Luke the Evangelist Episcopal Church</div>
+            <div class="contact-partner">⛪ Wheeler Avenue Baptist Church</div>
+            <div class="contact-partner">⛪ St. Mary of the Purification Catholic Church</div>
+          </div>
+
+          <div class="contact-form-col">
+            <div class="contact-map">
+              <div class="contact-map-inner">
+                <div class="contact-map-grid"></div>
+                <div class="contact-map-roads-h"></div>
+                <div class="contact-map-roads-v"></div>
+                <div class="contact-pin">
+                  <div class="contact-pin-icon">📍</div>
+                  <div class="contact-pin-badge">3118½ Blodgett St</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-title">Send Us a Message</div>
+            <div class="contact-form-sub">For partnership inquiries, press, or general questions. If you need food assistance, please just come during our open hours — no message needed.</div>
+
+            <div class="form-row">
+              <div class="form-field" style="margin-bottom:0;"><div class="form-label">First Name</div><input class="form-input" type="text" placeholder="First name" /></div>
+              <div class="form-field" style="margin-bottom:0;"><div class="form-label">Last Name</div><input class="form-input" type="text" placeholder="Last name" /></div>
+            </div>
+            <div class="form-field"><div class="form-label">Email Address</div><input class="form-input" type="text" placeholder="your@email.com" /></div>
+            <div class="form-field"><div class="form-label">I'm Reaching Out About</div><select class="form-select"><option>Getting food assistance</option><option>Volunteering</option><option>Making a donation</option><option>Church or organization partnership</option><option>Press or media inquiry</option><option>Something else</option></select></div>
+            <div class="form-field"><div class="form-label">Message</div><textarea class="form-input" rows="4" placeholder="How can we help?" style="resize:none;"></textarea></div>
+            <button class="form-btn">Send Message</button>
+
+            <div class="contact-notice">
+              <strong>Looking for food assistance?</strong> You are always welcome to come directly to Manna House during open hours — no message or appointment needed. 3118½ Blodgett Street, Thursday & Friday 9 AM–12:30 PM.
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div><div class="footer-brand-name"><em>Manna</em> House</div><div class="footer-brand-sub">Third Ward Food Pantry</div><div class="footer-desc">Serving the Third Ward community since 1997.</div></div>
+            <div><div class="footer-col-title">Quick Links</div><a href="#" class="footer-link">Get Help</a><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Volunteer</a><a href="#" class="footer-link">Donate</a><a href="#" class="footer-link">Contact</a></div>
+            <div><div class="footer-col-title">Languages</div><a href="#" class="footer-link">English</a><a href="#" class="footer-link">Español</a></div>
+            <div><div class="footer-col-title">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">3118½ Blodgett Street<br>Houston, TX 77004</div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text">713-529-3381</div></div></div>
+          </div>
+          <div class="footer-bottom"><div class="footer-copy">© 2026 Manna House Third Ward Food Pantry · Website by The E.R. Collective</div></div>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════════
+           MOBILE MOCKUPS PAGE
+      ═══════════════════════════════ -->
+      <div id="page-mobile" class="page-view">
+        <div class="mobile-section">
+          <div class="mobile-section-eyebrow">Mobile Experience</div>
+          <div class="mobile-section-h2">Designed for Every Screen</div>
+          <div class="mobile-section-sub">Over 60% of community members searching for food assistance will visit on a phone. These mobile concepts show how the most important pages adapt to a smaller screen — with hours and location always front and center.</div>
+          <div class="mobile-grid">
+
+            <!-- MOBILE HOME -->
+            <div>
+              <div class="mobile-label">Home Page</div>
+              <div class="mob-frame">
+                <div class="mob-notch"><div class="mob-notch-bar"></div></div>
+                <div class="mob-chrome">
+                  <div class="mob-chrome-logo"><em>Manna</em> House</div>
+                  <div class="mob-chrome-menu">☰</div>
+                </div>
+                <div class="mob-hero-sm">
+                  <div class="mob-hero-texture"></div>
+                  <div class="mob-eyebrow">Third Ward · Houston · Est. 1997</div>
+                  <div class="mob-h1">Feeding Families,<br><em>Rooting Community.</em></div>
+                  <div class="mob-sub">Open to all Harris County residents in need. No appointment necessary.</div>
+                  <div class="mob-btn-r">🍽️  Get Help Today</div>
+                  <div class="mob-btn-o">Volunteer With Us</div>
+                </div>
+                <div class="mob-info-bar">📅 Thu & Fri + 3rd Sat &nbsp;·&nbsp; 🕘 9AM–12:30PM &nbsp;·&nbsp; 📍 77004</div>
+                <div class="mob-stats">
+                  <div><div class="mob-stat-n">100+</div><div class="mob-stat-l">Families/Wk</div></div>
+                  <div><div class="mob-stat-n">29</div><div class="mob-stat-l">Years</div></div>
+                  <div><div class="mob-stat-n">5</div><div class="mob-stat-l">Churches</div></div>
+                </div>
+                <div class="mob-body-section">
+                  <div class="mob-body-eyebrow">Getting Food Help</div>
+                  <div class="mob-body-h2">How It Works</div>
+                  <div class="mob-card-sm"><div class="mob-card-icon">🚶</div><div><div class="mob-card-title">Come During Open Hours</div><div class="mob-card-text">No appointment needed. Thursday, Friday, or 3rd Saturday.</div></div></div>
+                  <div class="mob-card-sm"><div class="mob-card-icon">📋</div><div><div class="mob-card-title">Sign In With Our Team</div><div class="mob-card-text">A volunteer will greet you. ID helpful but never required.</div></div></div>
+                  <div class="mob-card-sm"><div class="mob-card-icon">🛍️</div><div><div class="mob-card-title">Take Home What You Need</div><div class="mob-card-text">Select food for your household. We serve all sizes.</div></div></div>
+                </div>
+                <div style="background:var(--red);padding:16px 14px;">
+                  <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(255,240,240,.78);text-transform:uppercase;margin-bottom:6px;">Get Involved</div>
+                  <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;">Make a Difference</div>
+                  <div style="background:rgba(255,255,255,.15);border-radius:6px;padding:10px;margin-bottom:8px;"><div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:2px;">🤝 Volunteer</div><div style="font-size:10px;color:rgba(255,240,240,.85);">Join our team. Spanish speakers welcome.</div></div>
+                  <div style="background:rgba(255,255,255,.1);border-radius:6px;padding:10px;"><div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:2px;">❤️ Donate Food or Funds</div><div style="font-size:10px;color:rgba(255,240,240,.85);">Every gift stays in the Third Ward.</div></div>
+                </div>
+                <div class="mob-footer-sm">
+                  <div class="mob-footer-logo"><em>Manna</em> House</div>
+                  <div class="mob-footer-text">3118½ Blodgett St · Houston TX 77004 · 713-529-3381</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MOBILE GET HELP -->
+            <div>
+              <div class="mobile-label">Get Help Page</div>
+              <div class="mob-frame">
+                <div class="mob-notch"><div class="mob-notch-bar"></div></div>
+                <div class="mob-chrome">
+                  <div class="mob-chrome-logo"><em>Manna</em> House</div>
+                  <div class="mob-chrome-menu">☰</div>
+                </div>
+                <div style="background:#F5D5D0;padding:8px 14px;font-size:10px;color:var(--gold);font-weight:600;">🌐 También disponible en Español</div>
+                <div class="mob-help-hero">
+                  <div class="mob-help-eyebrow">Food Assistance</div>
+                  <div class="mob-help-h1">Getting Food<br><em>Is Simple.</em></div>
+                  <div class="mob-help-sub">Open to all Harris County residents. No appointment. No judgment. Just neighbors helping neighbors.</div>
+                  <div class="mob-info-card">
+                    <div class="mob-info-row">📅 <span><strong>Open Days:</strong> Thu & Fri + 3rd Saturday</span></div>
+                    <div class="mob-info-row">🕘 <span><strong>Hours:</strong> 9:00 AM – 12:30 PM</span></div>
+                    <div class="mob-info-row">📍 <span>3118½ Blodgett St, Houston TX 77004</span></div>
+                    <div class="mob-info-row">📞 <span>713-529-3381</span></div>
+                  </div>
+                </div>
+                <div class="mob-body-section">
+                  <div class="mob-body-eyebrow">The Process</div>
+                  <div class="mob-body-h2">Four Simple Steps</div>
+                  <div class="mob-step-sm"><div class="mob-step-num">1</div><div><div class="mob-card-title">Come During Open Hours</div><div class="mob-card-text">Visit us at 3118½ Blodgett. Walk-ins always welcome.</div></div></div>
+                  <div class="mob-step-sm"><div class="mob-step-num">2</div><div><div class="mob-card-title">Sign In With Our Team</div><div class="mob-card-text">A volunteer greets you. ID is helpful but never required.</div></div></div>
+                  <div class="mob-step-sm"><div class="mob-step-num">3</div><div><div class="mob-card-title">Browse Our Pantry</div><div class="mob-card-text">Select food items with volunteer assistance.</div></div></div>
+                  <div class="mob-step-sm"><div class="mob-step-num">4</div><div><div class="mob-card-title">Take Home What You Need</div><div class="mob-card-text">We serve families of all sizes. No limit on dignity.</div></div></div>
+                </div>
+                <div style="background:var(--off-white);padding:14px;border-top:1px solid var(--border);">
+                  <div style="background:#fff;border-radius:8px;padding:12px;border-left:3px solid var(--red);margin-bottom:8px;"><div style="font-size:11px;font-weight:700;color:var(--black);margin-bottom:3px;">Who Can Come?</div><div style="font-size:10px;color:var(--gray);">All Harris County residents. Zip codes 77004 & 77021 our home base.</div></div>
+                  <div style="background:#fff;border-radius:8px;padding:12px;border-left:3px solid var(--red);margin-bottom:8px;"><div style="font-size:11px;font-weight:700;color:var(--black);margin-bottom:3px;">What to Bring</div><div style="font-size:10px;color:var(--gray);">A bag to carry food. Come as you are — ID never required.</div></div>
+                  <div style="background:#fff;border-radius:8px;padding:12px;border-left:3px solid var(--gold);"><div style="font-size:11px;font-weight:700;color:var(--black);margin-bottom:3px;">🌐 Languages Spoken</div><div style="font-size:10px;color:var(--gray);">English & Spanish. Hablamos español.</div></div>
+                </div>
+                <div class="mob-footer-sm">
+                  <div class="mob-footer-logo"><em>Manna</em> House</div>
+                  <div class="mob-footer-text">3118½ Blodgett St · Houston TX 77004</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MOBILE DONATE -->
+            <div>
+              <div class="mobile-label">Donate Page</div>
+              <div class="mob-frame">
+                <div class="mob-notch"><div class="mob-notch-bar"></div></div>
+                <div class="mob-chrome">
+                  <div class="mob-chrome-logo"><em>Manna</em> House</div>
+                  <div class="mob-chrome-menu">☰</div>
+                </div>
+                <div class="mob-donate-hero">
+                  <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(0,0,0,.5);text-transform:uppercase;margin-bottom:6px;">Support Our Work</div>
+                  <div class="mob-donate-h1">Your Gift Feeds Our Neighbors.</div>
+                  <div class="mob-donate-sub">Every donation goes directly to feeding families in the Third Ward. 100% stays in our community.</div>
+                  <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+                    <div style="background:rgba(0,0,0,.08);border-radius:6px;padding:6px 10px;font-size:9px;font-weight:600;color:var(--black);">🍽️ 100+ families/week</div>
+                    <div style="background:rgba(0,0,0,.08);border-radius:6px;padding:6px 10px;font-size:9px;font-weight:600;color:var(--black);">📍 100% Third Ward</div>
+                  </div>
+                </div>
+                <div class="mob-body-section">
+                  <div class="mob-body-eyebrow">Ways to Give</div>
+                  <div class="mob-body-h2">How You Can Help</div>
+                  <div class="mob-donate-card">
+                    <div class="mob-donate-card-head featured">
+                      <div style="font-size:8px;font-weight:700;color:rgba(255,240,240,.85);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Most Needed</div>
+                      <div class="mob-donate-card-title">Donate Food</div>
+                    </div>
+                    <div class="mob-donate-card-body">
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Canned vegetables & fruits</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Peanut butter & jelly</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Rice, dry pasta & oatmeal</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Canned meats (tuna, chicken)</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Cereal & breakfast items</div>
+                      <a href="#" class="mob-donate-btn">Plan a Food Drop-Off</a>
+                    </div>
+                  </div>
+                  <div class="mob-donate-card">
+                    <div class="mob-donate-card-head">
+                      <div class="mob-donate-card-title">Give Money</div>
+                    </div>
+                    <div class="mob-donate-card-body">
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>$25 — snacks for 10 families</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>$50 — staples for 20 families</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>$100 — one full distribution day</div>
+                      <div class="mob-donate-item"><span class="mob-donate-item-check">✓</span>Corporate & church giving welcome</div>
+                      <a href="#" class="mob-donate-btn outline">Make a Monetary Gift</a>
+                    </div>
+                  </div>
+                  <div style="background:#F0CECA;border-radius:10px;padding:14px;text-align:center;margin-top:4px;">
+                    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">Annual Event</div>
+                    <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;">Share Your Birthday 🎂</div>
+                    <div style="font-size:10px;color:rgba(255,240,240,.78);line-height:1.5;">Ask friends to donate to Manna House on your birthday. A Houston Food Bank campaign.</div>
+                  </div>
+                </div>
+                <div class="mob-footer-sm">
+                  <div class="mob-footer-logo"><em>Manna</em> House</div>
+                  <div class="mob-footer-text">3118½ Blodgett St · Houston TX 77004</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end mobile-grid -->
+
+          <!-- Mobile design notes -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;">
+            <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border);">
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--black);margin-bottom:12px;text-transform:uppercase;">Mobile Design Principles</div>
+              <div style="font-size:13px;color:var(--gray);line-height:1.7;"><strong style="color:var(--black);display:block;margin-bottom:3px;">Hours always visible</strong>The most common mobile visit: checking hours before leaving home. Hours appear immediately below the hero — never buried.<br><br><strong style="color:var(--black);display:block;margin-bottom:3px;">Buttons stacked vertically</strong>On mobile, CTAs stack so they're large enough to tap. Primary action (Get Help) is always first.<br><br><strong style="color:var(--black);display:block;margin-bottom:3px;">Cards, not columns</strong>Multi-column layouts collapse into easy-scroll single-column cards. No horizontal scrolling anywhere.</div>
+            </div>
+            <div style="background:#fff;border-radius:12px;padding:24px;border:1px solid var(--border);">
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:var(--black);margin-bottom:12px;text-transform:uppercase;">Accessibility on Mobile</div>
+              <div style="font-size:13px;color:var(--gray);line-height:1.7;">All tap targets are a minimum 44×44px per WCAG guidelines. Text is minimum 14px at base size. Color contrast ratios exceed 4.5:1 on all body text.<br><br>The site is fully compatible with VoiceOver (iOS) and TalkBack (Android) screen readers. Language switcher is prominent and keyboard accessible.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════
+           FEATURES PAGE
+      ═══════════════════════════════ -->
+      <div id="page-features" class="page-view">
+        <div class="features-page">
+          <div class="features-inner">
+            <div class="features-eyebrow">What's Included</div>
+            <h1 class="features-h1">Proposed Website Features</h1>
+            <p class="features-sub">Every feature listed below is included in the proposed website for Manna House Third Ward Food Pantry. This is what the $500 upfront investment delivers — a complete, professional digital foundation built to serve the community and grow over time.</p>
+
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Responsive Design</div>
+                <div class="feature-text">The site looks and works perfectly on desktop, tablet, and mobile. Designed mobile-first because that's where your community will find you.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <div class="feature-title">Bilingual Ready</div>
+                <div class="feature-text">Full English and Spanish support built into the site structure. Language switcher on every page. Key pages translated by a human reviewer, not auto-translate.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">✉️</div>
+                <div class="feature-title">Contact Forms</div>
+                <div class="feature-text">A general contact form on the Contact page delivers messages directly to your team email. Includes spam protection via Google reCAPTCHA.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <div class="feature-title">Volunteer Interest Form</div>
+                <div class="feature-text">A dedicated volunteer sign-up form capturing name, contact info, preferred days, languages spoken, and area of interest. Delivers to your team instantly.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <div class="feature-title">Donation Integration</div>
+                <div class="feature-text">Food donation wishlist and drop-off information. Monetary giving pathway via PayPal or existing platform. Share Your Birthday campaign featured prominently.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <div class="feature-title">Google Maps</div>
+                <div class="feature-text">Interactive Google Map embedded on the Contact page. Clickable on mobile to open navigation. Address and hours verified and consistent across all pages.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-title">Basic SEO</div>
+                <div class="feature-text">Page titles, meta descriptions, heading hierarchy, image alt text, XML sitemap, and Google Search Console setup. Google Business Profile created and optimized.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">♿</div>
+                <div class="feature-title">Accessibility Best Practices</div>
+                <div class="feature-text">WCAG 2.1 AA compliance standards. Color contrast ratios verified, keyboard navigation tested, screen reader compatible, all images have descriptive alt text.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📲</div>
+                <div class="feature-title">Social Media Integration</div>
+                <div class="feature-text">Links to your Facebook page and any other social channels in the footer and Contact page. Social sharing enabled on key content pages.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <div class="feature-title">WordPress CMS</div>
+                <div class="feature-text">Built on WordPress — the world's most widely used content management system. Your team can update hours, announcements, and content without technical knowledge.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">SSL Security</div>
+                <div class="feature-text">SSL certificate ensures the site loads as https:// — required for trust, required by Google for search ranking, and standard on all sites we build.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Google Analytics</div>
+                <div class="feature-text">GA4 connected and configured. Track how many people visit, what pages they read, where they come from, and how they find you — reported to you every month.</div>
+                <div class="feature-badge">Included</div>
+              </div>
+            </div>
+
+            <!-- Training & Handoff + CTA -->
+            <div class="features-footer">
+              <div>
+                <div class="features-footer-title">Training & Handoff Included</div>
+                <div class="features-footer-text">Once the site is live, The E.R. Collective delivers a complete Client Handoff Package — secure login credentials, a 30-minute WordPress orientation, documentation on what each plugin does and how to update content, and clear instructions for what to do if something isn't working.</div>
+                <div class="features-footer-meta">Ongoing monthly management available · $150/month · Includes updates, backups, security, content changes & monthly reporting</div>
+              </div>
+              <div class="features-cta-box">
+                <div class="features-cta-label">Also Available as Add-Ons</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Online appointment scheduling</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Email newsletter setup (Mailchimp)</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Google Ad Grants application ($10K/mo free ads)</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Digital client intake forms</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Volunteer management system</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>Impact dashboard (families served, lbs distributed)</div>
+                <div class="features-cta-item"><span class="features-cta-check">+</span>AI-powered bilingual FAQ chatbot</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end browser-body -->
+  </div><!-- end browser-wrap -->
+
+  <div style="text-align:center;padding:28px;font-size:12px;color:#7B2020;">
+    High-Fidelity Mockups · Manna House Third Ward Food Pantry · Prepared by <span style="color:#7B4F3A;font-weight:600;">The E.R. Collective</span> · July 2026
+  </div>
+
+</div><!-- end shell -->
+
+<script>
+const urls = {
+  vision:    'mannahousethirdward.org — Design Vision',
+  home:      'mannahousethirdward.org',
+  about:     'mannahousethirdward.org/about',
+  help:      'mannahousethirdward.org/get-help',
+  volunteer: 'mannahousethirdward.org/volunteer',
+  donate:    'mannahousethirdward.org/donate',
+  contact:   'mannahousethirdward.org/contact',
+  mobile:    'mannahousethirdward.org — Mobile Concepts',
+  features:  'mannahousethirdward.org — Proposed Features',
+};
+function showPage(id, btn) {
+  document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('url-display').textContent = urls[id];
+  document.querySelector('.browser-body').scrollTop = 0;
+  window.scrollTo({ top: document.querySelector('.browser-wrap').offsetTop - 60, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
